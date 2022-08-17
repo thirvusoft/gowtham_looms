@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include gowtham_looms *.css
+recursive-include gowtham_looms *.csv
+recursive-include gowtham_looms *.html
+recursive-include gowtham_looms *.ico
+recursive-include gowtham_looms *.js
+recursive-include gowtham_looms *.json
+recursive-include gowtham_looms *.md
+recursive-include gowtham_looms *.png
+recursive-include gowtham_looms *.py
+recursive-include gowtham_looms *.svg
+recursive-include gowtham_looms *.txt
+recursive-exclude gowtham_looms *.pyc
