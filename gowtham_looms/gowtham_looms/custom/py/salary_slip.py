@@ -8,8 +8,6 @@ def emp_salary(employee,start_date,end_date):
         job_card_name = list(set(jobcard))
         wrk_order = frappe.get_all("Job Card",filters={'docstatus':1,'status':'Completed','name': ['in',job_card_name]}, pluck = 'work_order')
         wrk_order_name = list(set(wrk_order))
-        print(wrk_order)
-        print(wrk_order_name)
         item_qty = frappe.get_all("Work Order",filters={'docstatus':1,'status':'Completed','name': ['in',wrk_order_name]}, fields = ['production_item','qty'])
         for i in range(len(item_qty)):
             manufacture_qty = frappe.get_value("Item",item_qty[i]['production_item'] ,"ts_cost_per_manufacturing")

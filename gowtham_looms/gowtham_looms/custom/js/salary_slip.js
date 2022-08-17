@@ -1,7 +1,7 @@
 frappe.ui.form.on('Salary Slip',{
     employee:function(frm,cdn,cdt){
         if(frm.doc.employee && frm.doc.start_date && frm.doc.end_date && frm.doc.designation){
-            console.log("Mani")
+      
             frappe.call({
                 method : "gowtham_looms.gowtham_looms.custom.py.salary_slip.emp_salary",
                 args :{
@@ -13,7 +13,7 @@ frappe.ui.form.on('Salary Slip',{
                     var child = cur_frm.add_child('earnings');
                     child.salary_component = "Basic"
                     child.amount = r.message
-                    console.log(r.message)
+                    
 
                 }
                 
@@ -23,7 +23,7 @@ frappe.ui.form.on('Salary Slip',{
     },
     start_date:function(frm,cdn,cdt){
         if(frm.doc.employee && frm.doc.start_date && frm.doc.end_date && frm.doc.designation){
-            console.log("Mani")
+
             frappe.call({
                 method : "gowtham_looms.gowtham_looms.custom.py.salary_slip.emp_salary",
                 args :{
@@ -42,7 +42,7 @@ frappe.ui.form.on('Salary Slip',{
     },
     end_date:function(frm,cdn,cdt){
         if(frm.doc.employee && frm.doc.start_date && frm.doc.end_date && frm.doc.designation){
-            console.log("Mani")
+    
             frappe.call({
                 method : "gowtham_looms.gowtham_looms.custom.py.salary_slip.emp_salary",
                 args :{
