@@ -1,4 +1,3 @@
-from asyncio import events
 from . import __version__ as app_version
 
 app_name = "gowtham_looms"
