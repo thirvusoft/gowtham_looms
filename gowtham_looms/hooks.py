@@ -102,6 +102,14 @@ after_install = "gowtham_looms.after_install.after_install"
 # 		"on_trash": "method"
 #	}
 # }
+# doc_events = {
+# 	'Salary Slip':{
+# 		"validate":"gowtham_looms.gowtham_looms.custom.py.salary_slip.emp_salary"
+# 	}
+# }
+doctype_js = {
+	"Salary Slip" : "/gowtham_looms/custom/js/salary_slip.js"
+}
 # Scheduled Tasks
 # ---------------
 
