@@ -57,7 +57,7 @@ app_license = "MIT"
 # ------------
 
 # before_install = "gowtham_looms.install.before_install"
-# after_install = "gowtham_looms.install.after_install"
+after_install = "gowtham_looms.after_install.after_install"
 
 # Uninstallation
 # ------------
@@ -102,7 +102,6 @@ app_license = "MIT"
 # 		"on_trash": "method"
 #	}
 # }
-
 # Scheduled Tasks
 # ---------------
 
