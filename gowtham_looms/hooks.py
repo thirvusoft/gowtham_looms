@@ -87,9 +87,10 @@ after_install = "gowtham_looms.after_install.after_install"
 # ---------------
 # Override standard doctype classes
 
-# override_doctype_class = {
-# 	"ToDo": "custom_app.overrides.CustomToDo"
-# }
+override_doctype_class = {
+	"Production Plan": "gowtham_looms.gowtham_looms.custom.py.productionplan.productionplan",
+	"Job Card": "gowtham_looms.gowtham_looms.custom.py.jobcard.jobcard"
+}
 
 # Document Events
 # ---------------
@@ -103,12 +104,13 @@ after_install = "gowtham_looms.after_install.after_install"
 #	}
 # }
 # doc_events = {
-# 	'Salary Slip':{
-# 		"validate":"gowtham_looms.gowtham_looms.custom.py.salary_slip.emp_salary"
+# 	'Production Plan':{
+# 		"validate":"gowtham_looms.gowtham_looms.custom.py.productionplan.available_qty"
 # 	}
 # }
 doctype_js = {
-	"Salary Slip" : "/gowtham_looms/custom/js/salary_slip.js"
+	"Salary Slip" : "/gowtham_looms/custom/js/salary_slip.js",
+	"Job Card" : "/gowtham_looms/custom/js/jobcard.js"
 }
 # Scheduled Tasks
 # ---------------
@@ -140,7 +142,7 @@ doctype_js = {
 # ------------------------------
 #
 # override_whitelisted_methods = {
-# 	"frappe.desk.doctype.event.event.get_events": "gowtham_looms.event.get_events"
+# 	"erpnext.manufacturing.doctype.production_plan.production_plan": "gowtham_looms.gowtham_looms.custom.py.workorder.work_order"
 # }
 #
 # each overriding function accepts a `data` argument;
