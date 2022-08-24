@@ -1,1 +1,5 @@
 gowtham_looms.utils.stock.item
+gowtham_looms.utils.manufacture.production_plan
+gowtham_looms.utils.manufacture.jobcard
+gowtham_looms.after_install
+gowtham_looms.utils.property_setter
