@@ -8,7 +8,22 @@ def custom_fields():
                 fieldname= "ts_cost_per_manufacturing",
                 fieldtype= "Currency",
                 insert_after= "stock_uom",
-                label= "Manufacturing Cost",
+                label= "Manufacturing Expense",
+                depends_on="eval:doc.item_group=='Looms'"
+            ),
+            dict(
+                fieldname= "gl_old_code",
+                fieldtype= "Data",
+                insert_after= "item_group",
+                label= "Old Item Group",
+            ),
+            dict(
+                fieldname= "abbrevation",
+                fieldtype= "Data",
+                insert_after= "item_code",
+                label= "Abbr",
+                hidden=1,
+                fetch_from='item_group.abbr'
             ),
         ]
     }
