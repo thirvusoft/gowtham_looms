@@ -103,14 +103,18 @@ override_doctype_class = {
 # 		"on_trash": "method"
 #	}
 # }
-# doc_events = {
-# 	'Production Plan':{
-# 		"validate":"gowtham_looms.gowtham_looms.custom.py.productionplan.available_qty"
-# 	}
-# }
+doc_events = {
+	'Item':{
+		"validate":"gowtham_looms.gowtham_looms.custom.py.item.validate"
+	}
+}
 doctype_js = {
 	"Salary Slip" : "/gowtham_looms/custom/js/salary_slip.js",
-	"Job Card" : "/gowtham_looms/custom/js/jobcard.js"
+	"Job Card" : "/gowtham_looms/custom/js/jobcard.js",
+	"Item" : "/gowtham_looms/custom/js/item.js",
+	"Material Request" : "/gowtham_looms/custom/js/material_request.js",
+	"Purchase Order" : "/gowtham_looms/custom/js/purchase_order.js",
+	"Item Group" : "/gowtham_looms/custom/js/item_group.js"
 }
 # Scheduled Tasks
 # ---------------
