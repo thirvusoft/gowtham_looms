@@ -74,7 +74,6 @@ def create_property_setter():
     make_property_setter('Sales Invoice','edit_printing_settings','hidden',1,'Check')
     make_property_setter('Sales Invoice','more_information','hidden',1,'Check')
     make_property_setter('Sales Invoice','sales_team_section_break','hidden',1,'Check')
-    # make_property_setter('Sales Invoice','subscription_section','hidden',1,'Check')
     make_property_setter('Stock Entry','apply_putaway_rule','hidden',1,'Check')
     make_property_setter('Stock Entry','additional_costs_section','depends_on','eval:doc.total_additional_costs','Text Editor')
     make_property_setter('Material Request','schedule_date','label','Required Date','Data')
