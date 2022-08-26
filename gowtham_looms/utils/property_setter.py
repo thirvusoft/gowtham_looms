@@ -114,7 +114,19 @@ def create_property_setter():
     make_property_setter('Sales Invoice','section_break_49','depends_on','eval:doc.discount_amount','Text Editor')
     make_property_setter('Sales Invoice','gst_section','hidden',1,'Check')
     make_property_setter('Item','item_code','reqd',0,'Check')
-    make_property_setter('Item','item_code','hidden',1,'Check')
- 
+    # make_property_setter('Item','item_code','hidden',1,'Check')
+    make_property_setter('Delivery Note','is_return','depends_on','eval:!doc.__islocal','Text Editor')
+    make_property_setter('Delivery Note','cost_center','default','Main - GL','Text Editor')
+    make_property_setter('Delivery Note','project','hidden',1,'Check')
+    make_property_setter('Delivery Note','currency_and_price_list','hidden',1,'Check')
+    make_property_setter('Delivery Note','scan_barcode','hidden',1,'Check')
+    make_property_setter('Delivery Note','shipping_rule','hidden',1,'Check')
+    make_property_setter('Delivery Note','section_break_49','hidden',1,'Check')
+    make_property_setter('Delivery Note','terms_section_break','hidden',1,'Check')
+    make_property_setter('Delivery Note','printing_details','hidden',1,'Check')
+    make_property_setter('Journal Entry','printing_details','hidden',1,'Check')
+    make_property_setter('Journal Entry','user_remark','hidden',1,'Check')
+    
+    
 def execute():
     create_property_setter()
