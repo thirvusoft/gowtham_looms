@@ -13,7 +13,7 @@
  "is_standard": 1,
  "label": "Manufacture",
  "links": [],
- "modified": "2022-08-26 11:33:07.530284",
+ "modified": "2022-08-26 12:29:23.901388",
  "modified_by": "Administrator",
  "module": "Gowtham Looms",
  "name": "Manufacture",
@@ -67,6 +67,48 @@
    "doc_view": "",
    "label": "STOCK ENTRY",
    "link_to": "Stock Entry",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "",
+   "label": "SALES ORDER",
+   "link_to": "Sales Order",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "",
+   "label": "SALES INVOICE",
+   "link_to": "Sales Invoice",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "",
+   "label": "PURCHASE INVOICE",
+   "link_to": "Purchase Invoice",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "",
+   "label": "PURCHASE ORDER",
+   "link_to": "Purchase Order",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "",
+   "label": "PURCHASE RECEIPT",
+   "link_to": "Purchase Receipt",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "",
+   "label": "PURCHASE INVOICE",
+   "link_to": "Purchase Invoice",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "",
+   "label": "PAYMENT",
+   "link_to": "Payment Entry",
    "type": "DocType"
   }
  ],
