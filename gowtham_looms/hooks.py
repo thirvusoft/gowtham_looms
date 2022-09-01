@@ -104,8 +104,8 @@ override_doctype_class = {
 #	}
 # }
 doc_events = {
-	'Item':{
-		"validate":"gowtham_looms.gowtham_looms.custom.py.item.validate"
+	'Item Group':{
+		"validate":"gowtham_looms.gowtham_looms.custom.py.item_group.validate"
 	}
 }
 doctype_js = {

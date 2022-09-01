@@ -1,7 +1,7 @@
 {
  "category": "Modules",
  "charts": [],
- "creation": "2022-08-25 18:37:48.918090",
+ "creation": "2022-08-30 11:49:11.115488",
  "developer_mode_only": 0,
  "disable_user_customization": 1,
  "docstatus": 0,
@@ -11,44 +11,50 @@
  "idx": 0,
  "is_default": 0,
  "is_standard": 1,
- "label": "Manufacture",
+ "label": "Inventory",
  "links": [],
- "modified": "2022-08-30 11:58:18.969236",
+ "modified": "2022-08-30 11:50:57.386828",
  "modified_by": "Administrator",
  "module": "Gowtham Looms",
- "name": "Manufacture",
+ "name": "Inventory",
  "owner": "Administrator",
  "pin_to_bottom": 0,
  "pin_to_top": 1,
  "shortcuts": [
   {
    "doc_view": "",
-   "label": "BOM",
-   "link_to": "BOM",
-   "type": "DocType"
-  },
-  {
-   "doc_view": "",
-   "label": "PRODUCTION PLAN",
-   "link_to": "Production Plan",
-   "type": "DocType"
-  },
-  {
-   "doc_view": "",
-   "label": "JOB CARD",
-   "link_to": "Job Card",
-   "type": "DocType"
-  },
-  {
-   "doc_view": "",
-   "label": "WORK ORDER",
-   "link_to": "Work Order",
+   "label": "ITEM",
+   "link_to": "Item",
    "type": "DocType"
   },
   {
    "doc_view": "",
    "label": "STOCK ENTRY",
    "link_to": "Stock Entry",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "",
+   "label": "ITEM GROUP",
+   "link_to": "Item Group",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "",
+   "label": "ITEM PRICE",
+   "link_to": "Item Price",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "",
+   "label": "STOCK RECONCILIATION",
+   "link_to": "Stock Reconciliation",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "",
+   "label": "MATERIAL REQUEST",
+   "link_to": "Material Request",
    "type": "DocType"
   }
  ],

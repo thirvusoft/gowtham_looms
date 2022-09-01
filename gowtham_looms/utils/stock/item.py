@@ -12,6 +12,13 @@ def custom_fields():
                 depends_on="eval:doc.item_group=='Looms'"
             ),
             dict(
+                fieldname= "ts_cmpy_abbr",
+                fieldtype= "Data",
+                insert_after= "abbrevation",
+                label= "Company Abbr",
+                fetch_from='item_group.abbr'
+            ),
+            dict(
                 fieldname= "gl_old_group",
                 fieldtype= "Data",
                 insert_after= "item_group",

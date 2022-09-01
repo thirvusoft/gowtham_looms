@@ -1,7 +1,7 @@
 {
  "category": "Modules",
  "charts": [],
- "creation": "2022-08-25 18:37:48.918090",
+ "creation": "2022-08-30 11:40:18.158514",
  "developer_mode_only": 0,
  "disable_user_customization": 1,
  "docstatus": 0,
@@ -11,44 +11,50 @@
  "idx": 0,
  "is_default": 0,
  "is_standard": 1,
- "label": "Manufacture",
+ "label": "HR User",
  "links": [],
- "modified": "2022-08-30 11:58:18.969236",
+ "modified": "2022-08-30 11:50:45.159509",
  "modified_by": "Administrator",
  "module": "Gowtham Looms",
- "name": "Manufacture",
+ "name": "HR User",
  "owner": "Administrator",
  "pin_to_bottom": 0,
  "pin_to_top": 1,
  "shortcuts": [
   {
    "doc_view": "",
-   "label": "BOM",
-   "link_to": "BOM",
+   "label": "PAYROLL ENTRY",
+   "link_to": "Payroll Entry",
    "type": "DocType"
   },
   {
    "doc_view": "",
-   "label": "PRODUCTION PLAN",
-   "link_to": "Production Plan",
+   "label": "SALARY COMPONENT",
+   "link_to": "Salary Component",
    "type": "DocType"
   },
   {
    "doc_view": "",
-   "label": "JOB CARD",
-   "link_to": "Job Card",
+   "label": "SALARY STRUCTURE",
+   "link_to": "Salary Structure",
    "type": "DocType"
   },
   {
    "doc_view": "",
-   "label": "WORK ORDER",
-   "link_to": "Work Order",
+   "label": "EMPLOYEE",
+   "link_to": "Employee",
    "type": "DocType"
   },
   {
    "doc_view": "",
-   "label": "STOCK ENTRY",
-   "link_to": "Stock Entry",
+   "label": "LEAVE APPLICATION",
+   "link_to": "Leave Application",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "",
+   "label": "ATTENDANCE",
+   "link_to": "Attendance",
    "type": "DocType"
   }
  ],

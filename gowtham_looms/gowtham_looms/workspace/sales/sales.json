@@ -1,7 +1,7 @@
 {
  "category": "Modules",
  "charts": [],
- "creation": "2022-08-25 18:37:48.918090",
+ "creation": "2022-08-30 09:43:20.938192",
  "developer_mode_only": 0,
  "disable_user_customization": 1,
  "docstatus": 0,
@@ -11,44 +11,32 @@
  "idx": 0,
  "is_default": 0,
  "is_standard": 1,
- "label": "Manufacture",
+ "label": "Sales",
  "links": [],
- "modified": "2022-08-30 11:58:18.969236",
+ "modified": "2022-08-30 09:53:54.955219",
  "modified_by": "Administrator",
  "module": "Gowtham Looms",
- "name": "Manufacture",
+ "name": "Sales",
  "owner": "Administrator",
  "pin_to_bottom": 0,
  "pin_to_top": 1,
  "shortcuts": [
   {
    "doc_view": "",
-   "label": "BOM",
-   "link_to": "BOM",
+   "label": "SALES INVOICE",
+   "link_to": "Sales Invoice",
    "type": "DocType"
   },
   {
    "doc_view": "",
-   "label": "PRODUCTION PLAN",
-   "link_to": "Production Plan",
+   "label": "SALES ORDER",
+   "link_to": "Sales Order",
    "type": "DocType"
   },
   {
    "doc_view": "",
-   "label": "JOB CARD",
-   "link_to": "Job Card",
-   "type": "DocType"
-  },
-  {
-   "doc_view": "",
-   "label": "WORK ORDER",
-   "link_to": "Work Order",
-   "type": "DocType"
-  },
-  {
-   "doc_view": "",
-   "label": "STOCK ENTRY",
-   "link_to": "Stock Entry",
+   "label": "TESTING",
+   "link_to": "Testing",
    "type": "DocType"
   }
  ],

@@ -2,6 +2,8 @@ import frappe
 from frappe.custom.doctype.property_setter.property_setter import make_property_setter
 
 def create_property_setter():
+    company = frappe.db.get_single_value("Global Defaults","default_company")
+    abbr = frappe.db.get_value("Company",company,"abbr")
     # Item Property Setter
     make_property_setter('Item','section_break_11','hidden', 1, 'Check')
     make_property_setter('Item','sb_barcodes','hidden', 1, 'Check')
@@ -33,6 +35,10 @@ def create_property_setter():
     make_property_setter('Item','hub_publishing_sb','hidden', 1, 'Check')
     make_property_setter('Item','more_information_section','hidden', 1, 'Check')
     make_property_setter('Item','item_code','reqd',0,'Check')
+    make_property_setter('Item','ts_cmpy_abbr','hidden', 1, 'Check')
+    make_property_setter('Item','naming_series','hidden', 1, 'Check')
+    make_property_setter('Item','naming_series','options',f'\nSTO-ITEM-.YYYY.-\n{abbr}-.{{abbrevation}}.#','Text Editor')
+    make_property_setter('Item','naming_series','default',f'{abbr}-.{{abbrevation}}.#','Text Editor')
     # BOM Property Setter
     make_property_setter('BOM','project','hidden', 1, 'Check')
     make_property_setter('BOM','currency_detail','hidden', 0, 'Check')
@@ -84,7 +90,7 @@ def create_property_setter():
     make_property_setter('Purchase Order','more_info','hidden', 1, 'Check')
     make_property_setter('Purchase Order','scan_barcode','hidden', 1, 'Check')
     make_property_setter('Purchase Order','terms_section_break','hidden',0,'Check')
-    make_property_setter('Purchase Order','cost_center','default','Main - GL','Text Editor')
+    make_property_setter('Purchase Order','cost_center','default',f'Main - {abbr}','Text Editor')
     make_property_setter('Purchase Order','project','hidden',1,'Check')
     make_property_setter('Purchase Order','currency_and_price_list','hidden',1,'Check')
     make_property_setter('Purchase Order','sec_warehouse','hidden',1,'Check')
@@ -103,7 +109,7 @@ def create_property_setter():
     make_property_setter('Purchase Receipt','terms_section_break','hidden',1,'Check')
     make_property_setter('Purchase Receipt','is_return','depends_on','eval:!doc.__islocal','Text Editor')
     make_property_setter('Purchase Receipt','apply_putaway_rule','hidden',1,'Check')
-    make_property_setter('Purchase Receipt','cost_center','default','Main - GL','Text Editor')
+    make_property_setter('Purchase Receipt','cost_center','default',f'Main - {abbr}','Text Editor')
     make_property_setter('Purchase Receipt','project','hidden',1,'Check')
     make_property_setter('Purchase Receipt','currency_and_price_list','hidden',1,'Check')
     make_property_setter('Purchase Receipt','shipping_rule','hidden',1,'Check')
@@ -119,7 +125,7 @@ def create_property_setter():
     make_property_setter('Purchase Invoice','printing_settings','hidden',1,'Check')
     make_property_setter('Purchase Invoice','more_info','hidden',1,'Check')
     make_property_setter('Purchase Invoice','tax_id','hidden',1,'Check')
-    make_property_setter('Purchase Invoice','cost_center','default','Main - GL','Text Editor')
+    make_property_setter('Purchase Invoice','cost_center','default',f'Main - {abbr}','Text Editor')
     make_property_setter('Purchase Invoice','currency_and_price_list','hidden',1,'Check')
     make_property_setter('Purchase Invoice','project','hidden',1,'Check')
     make_property_setter('Purchase Invoice','is_subcontracted','hidden',1,'Check')
@@ -136,7 +142,7 @@ def create_property_setter():
     make_property_setter('Sales Invoice','edit_printing_settings','hidden',1,'Check')
     make_property_setter('Sales Invoice','more_information','hidden',1,'Check')
     make_property_setter('Sales Invoice','sales_team_section_break','hidden',1,'Check')
-    make_property_setter('Sales Invoice','cost_center','default','Main - GL','Text Editor')
+    make_property_setter('Sales Invoice','cost_center','default',f'Main - {abbr}','Text Editor')
     make_property_setter('Sales Invoice','project','hidden',1,'Check')
     make_property_setter('Sales Invoice','shipping_rule','hidden',1,'Check')
     make_property_setter('Sales Invoice','section_break_49','depends_on','eval:doc.discount_amount','Text Editor')
@@ -156,11 +162,11 @@ def create_property_setter():
     make_property_setter('Material Request','terms_section_break','hidden',1,'Check')
     make_property_setter('Material Request','naming_series','read_only',1,'Check')
     # Sales Order Property Setter
-    make_property_setter('Sales Order','cost_center','default','Main - GL','Text Editor')
+    make_property_setter('Sales Order','cost_center','default',f'Main - {abbr}','Text Editor')
     make_property_setter('Sales Order','project','hidden',1,'Check')
     make_property_setter('Sales Order','currency_and_price_list','hidden',1,'Check')
     make_property_setter('Sales Order','shipping_rule','hidden',1,'Check')
-    make_property_setter('Sales Order','set_warehouse','default','Finished Goods - Ls','Text Editor')
+    make_property_setter('Sales Order','set_warehouse','default',f'Finished Goods - {abbr}','Text Editor')
     make_property_setter('Sales Order','set_warehouse','hidden',1,'Check')
     make_property_setter('Sales Order','cost_center','hidden',1,'Check')
     make_property_setter('Sales Order','section_break_48','label','Additional Discount','Data')
@@ -170,7 +176,7 @@ def create_property_setter():
     make_property_setter('Sales Order','payment_schedule_section','collapsible',1,'Check')
     # Delivery Note Property Setter
     make_property_setter('Delivery Note','is_return','depends_on','eval:!doc.__islocal','Text Editor')
-    make_property_setter('Delivery Note','cost_center','default','Main - GL','Text Editor')
+    make_property_setter('Delivery Note','cost_center','default',f'Main - {abbr}','Text Editor')
     make_property_setter('Delivery Note','project','hidden',1,'Check')
     make_property_setter('Delivery Note','currency_and_price_list','hidden',1,'Check')
     make_property_setter('Delivery Note','scan_barcode','hidden',1,'Check')
