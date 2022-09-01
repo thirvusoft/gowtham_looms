@@ -1,7 +1,7 @@
 {
  "category": "Modules",
  "charts": [],
- "creation": "2022-08-25 18:37:48.918090",
+ "creation": "2022-08-29 16:09:28.918717",
  "developer_mode_only": 0,
  "disable_user_customization": 1,
  "docstatus": 0,
@@ -11,46 +11,40 @@
  "idx": 0,
  "is_default": 0,
  "is_standard": 1,
- "label": "Manufacture",
+ "label": "Purchase",
  "links": [],
- "modified": "2022-08-29 16:07:29.239138",
+ "modified": "2022-08-29 16:12:28.476561",
  "modified_by": "Administrator",
  "module": "Gowtham Looms",
- "name": "Manufacture",
+ "name": "Purchase",
  "owner": "Administrator",
  "pin_to_bottom": 0,
  "pin_to_top": 1,
  "shortcuts": [
   {
    "doc_view": "",
-   "label": "BOM",
-   "link_to": "BOM",
+   "label": "PURCHASE ORDER",
+   "link_to": "Purchase Order",
    "type": "DocType"
   },
   {
    "doc_view": "",
-   "label": "PRODUCTION PLAN",
-   "link_to": "Production Plan",
+   "label": "PURCHASE INVOICE",
+   "link_to": "Purchase Invoice",
    "type": "DocType"
   },
   {
    "doc_view": "",
-   "label": "JOB CARD",
-   "link_to": "Job Card",
+   "label": "PURCHASE RECEIPT",
+   "link_to": "Purchase Receipt",
    "type": "DocType"
   },
   {
    "doc_view": "",
-   "label": "WORK ORDER",
-   "link_to": "Work Order",
-   "type": "DocType"
-  },
-  {
-   "doc_view": "",
-   "label": "STOCK ENTRY",
-   "link_to": "Stock Entry",
+   "label": "SUPPLIER QUOTATION",
+   "link_to": "Supplier Quotation",
    "type": "DocType"
   }
  ],
- "shortcuts_label": "Gowtham Looms"
+ "shortcuts_label": "Purchase"
 }

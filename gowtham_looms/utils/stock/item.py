@@ -12,10 +12,10 @@ def custom_fields():
                 depends_on="eval:doc.item_group=='Looms'"
             ),
             dict(
-                fieldname= "gl_old_code",
+                fieldname= "gl_old_group",
                 fieldtype= "Data",
                 insert_after= "item_group",
-                label= "Old Item Group",
+                label= "Old Item Code",
             ),
             dict(
                 fieldname= "abbrevation",
