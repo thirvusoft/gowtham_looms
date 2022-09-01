@@ -106,7 +106,7 @@ override_doctype_class = {
 doc_events = {
 	'Item Group':{
 		"validate":"gowtham_looms.gowtham_looms.custom.py.item_group.validate"
-	}
+	},
 }
 doctype_js = {
 	"Salary Slip" : "/gowtham_looms/custom/js/salary_slip.js",

@@ -37,8 +37,11 @@ def create_property_setter():
     make_property_setter('Item','item_code','reqd',0,'Check')
     make_property_setter('Item','ts_cmpy_abbr','hidden', 1, 'Check')
     make_property_setter('Item','naming_series','hidden', 1, 'Check')
+    make_property_setter('Item','naming_series','read_only', 1, 'Check')
     make_property_setter('Item','naming_series','options',f'\nSTO-ITEM-.YYYY.-\n{abbr}-.{{abbrevation}}.#','Text Editor')
     make_property_setter('Item','naming_series','default',f'{abbr}-.{{abbrevation}}.#','Text Editor')
+    make_property_setter('Item','allow_alternative_item','depends_on', "eval:doc.is_purchase_item=='1'", 'Text Editor')
+    make_property_setter('Item','reorder_section','depends_on', "eval:doc.is_purchase_item=='1'", 'Text Editor')
     # BOM Property Setter
     make_property_setter('BOM','project','hidden', 1, 'Check')
     make_property_setter('BOM','currency_detail','hidden', 0, 'Check')
@@ -55,12 +58,16 @@ def create_property_setter():
     make_property_setter('BOM','is_active','hidden', 1, 'Check')
     make_property_setter('BOM','is_default','hidden', 1, 'Check')
     make_property_setter('BOM','set_rate_of_sub_assembly_item_based_on_bom','hidden', 1, 'Check')
+    #BOM Operation
+    make_property_setter('BOM Operation','time_in_mins','default', 5, 'Text Editor')
     # Production Plan Property Setter
     make_property_setter('Production Plan', 'get_sub_assembly_items', 'hidden', 1, 'Check')
     make_property_setter('Production Plan', 'sub_assembly_items', 'hidden', 1, 'Check')
     # Workorder Property Setter
     make_property_setter('Work Order','production_plan_item','hidden', 1, 'Check')
-    #Job Card Property Setter
+    make_property_setter('Work Order','project','hidden', 1, 'Check')
+    make_property_setter('Work Order','scrap_warehouse','hidden', 1, 'Check')
+    # Job Card Property Setter
     make_property_setter('Job Card','quality_inspection_template','hidden', 1, 'Check')
     make_property_setter('Job Card','quality_inspection','hidden', 1, 'Check')
     make_property_setter('Job Card','project','hidden', 1, 'Check')
@@ -193,9 +200,5 @@ def create_property_setter():
     make_property_setter('Payment Term','section_break_8','collapsible',1,'Check')
 
 
-
-    
-    
-    
 def execute():
     create_property_setter()

@@ -59,7 +59,7 @@ def get_columns():
 
 
 def get_data(filters):
-    filter={}
+    filter={"docstatus":1}
     keys = list(filters.keys())
     if("item_name" in keys):
         filter["production_item"] = filters["item_name"]

@@ -19,6 +19,7 @@ frappe.ui.form.on("Item", {
         if(frm.doc.item_group == "Looms"){
             cur_frm.set_value('is_purchase_item',0)
             cur_frm.set_value('include_item_in_manufacturing',0)
+           
         }
         else{
             cur_frm.set_value('is_purchase_item',1)
