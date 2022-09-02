@@ -3,3 +3,6 @@ gowtham_looms.utils.manufacture.production_plan
 gowtham_looms.utils.manufacture.jobcard
 gowtham_looms.after_install
 gowtham_looms.utils.property_setter
+gowtham_looms.utils.stock.item_price
+gowtham_looms.utils.stock.item_group
+gowtham_looms.utils.sales.sales_order

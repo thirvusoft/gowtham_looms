@@ -13,7 +13,7 @@
  "is_standard": 1,
  "label": "Sales",
  "links": [],
- "modified": "2022-08-30 09:53:54.955219",
+ "modified": "2022-09-01 19:58:56.730641",
  "modified_by": "Administrator",
  "module": "Gowtham Looms",
  "name": "Sales",
@@ -31,12 +31,6 @@
    "doc_view": "",
    "label": "SALES ORDER",
    "link_to": "Sales Order",
-   "type": "DocType"
-  },
-  {
-   "doc_view": "",
-   "label": "TESTING",
-   "link_to": "Testing",
    "type": "DocType"
   }
  ],

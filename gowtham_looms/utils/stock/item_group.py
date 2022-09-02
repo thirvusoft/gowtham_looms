@@ -8,6 +8,9 @@ def item_group_custom_fields():
                 fieldtype= "Data",
                 insert_after= "item_group_name",
                 label= "Abbr",
+                reqd=1,
+                allow_in_quick_entry=1,
+                bold =1
             ),
         ]
     }

@@ -27,7 +27,7 @@ def custom_fields():
             dict(
                 fieldname= "abbrevation",
                 fieldtype= "Data",
-                insert_after= "item_code",
+                insert_after= "gl_old_group",
                 label= "Abbr",
                 hidden=1,
                 fetch_from='item_group.abbr'

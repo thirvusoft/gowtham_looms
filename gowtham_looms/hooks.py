@@ -119,7 +119,7 @@ doctype_js = {
 	"Purchase Receipt" : "/gowtham_looms/custom/js/purchase_receipt.js",
 	"Purchase Invoice" : "/gowtham_looms/custom/js/purchase_invoice.js",
 	"Sales Order" : "/gowtham_looms/custom/js/sales_order.js",
-	"Sales Invoice" : "/gowtham_looms/custom/js/sales_invoice.js"
+	"Sales Invoice" : "/gowtham_looms/custom/js/sales_invoice.js",
 }
 # Scheduled Tasks
 # ---------------
