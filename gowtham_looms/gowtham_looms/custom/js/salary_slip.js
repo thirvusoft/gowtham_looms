@@ -10,7 +10,7 @@ frappe.ui.form.on('Salary Slip',{
                     end_date:frm.doc.end_date,   
                 },
                 callback:function(r){
-                    var child = cur_frm.add_child('earnings');
+                    var child = frm.add_child('earnings');
                     child.salary_component = "Basic"
                     child.amount = r.message
                     cur_frm.refresh()
@@ -19,7 +19,7 @@ frappe.ui.form.on('Salary Slip',{
             })
         }
         else{
-            cur_frm.set_value("earnings",[])
+            frm.set_value("earnings",[])
         }
       
     },
@@ -34,7 +34,7 @@ frappe.ui.form.on('Salary Slip',{
                     end_date:frm.doc.end_date,   
                 },
                 callback:function(r){
-                    var child = cur_frm.add_child('earnings');
+                    var child = frm.add_child('earnings');
                     child.salary_component = "Basic"
                     child.amount = r.message
                     cur_frm.refresh()
@@ -42,7 +42,7 @@ frappe.ui.form.on('Salary Slip',{
             })
         }
         else{
-            cur_frm.set_value("earnings",[])
+            frm.set_value("earnings",[])
         }
       
     },
@@ -57,7 +57,7 @@ frappe.ui.form.on('Salary Slip',{
                     end_date:frm.doc.end_date,   
                 },
                 callback:function(r){
-                    var child = cur_frm.add_child('earnings');
+                    var child = frm.add_child('earnings');
                     child.salary_component = "Basic"
                     child.amount = r.message
                     cur_frm.refresh()
@@ -65,7 +65,7 @@ frappe.ui.form.on('Salary Slip',{
             })
         }
         else{
-            cur_frm.set_value("earnings",[])
+            frm.set_value("earnings",[])
         }
       
     }

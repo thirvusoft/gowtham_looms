@@ -44,6 +44,9 @@ def create_property_setter():
     make_property_setter('Item','reorder_section','depends_on', "eval:doc.is_purchase_item=='1'", 'Text Editor')
     make_property_setter('Item','standard_rate','depends_on', "eval:doc.is_sales_item=='1'", 'Text Editor')
     make_property_setter('Item','warranty_period','depends_on', "eval:doc.is_sales_item=='1'", 'Text Editor')
+    make_property_setter('Item','over_delivery_receipt_allowance','hidden', 1, 'Check')
+    make_property_setter('Item','over_billing_allowance','hidden', 1, 'Check')
+    make_property_setter('Item','purchase_details','hidden',1,'Check')
     # Item Group Property Setter
     make_property_setter('Item Group','sb9','hidden', 1, 'Check')
     make_property_setter('Item Group','defaults','hidden', 1, 'Check')
@@ -59,6 +62,7 @@ def create_property_setter():
     make_property_setter('Item Price','note','hidden', 1, 'Check')
     make_property_setter('Item Price','reference','hidden', 1, 'Check')
     make_property_setter('Item Price','price_list_details','collapsible', 1, 'Check')
+    make_property_setter('Item Price','supplier','hidden', 1, 'Check')
     # Stock Reconsoliation
     make_property_setter('Stock Reconciliation','expense_account','depends_on', '!company', 'Text Editor')
     make_property_setter('Stock Reconciliation','cost_center','default',f'Main - {abbr}','Text Editor')
