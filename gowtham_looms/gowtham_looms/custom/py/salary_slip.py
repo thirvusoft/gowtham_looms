@@ -1,5 +1,4 @@
 import frappe
-import json
 
 @frappe.whitelist()
 def emp_salary(employee,start_date,end_date):

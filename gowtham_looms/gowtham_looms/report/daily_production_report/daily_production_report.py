@@ -21,28 +21,28 @@ def get_columns():
         },
         {
             "label": _("Job Card"),
-            "fieldtype": "Link",
+            "fieldtype": "Data",
             "fieldname": "name",
             "options": "Job Card",
             "width": 200
         },
         {
             "label": _("Item Code"),
-            "fieldtype": "Link",
+            "fieldtype": "Data",
             "fieldname": "production_item",
             "options": "Item",
             "width": 200
         },
         {
             "label": _("Item Name"),
-            "fieldtype": "Link",
+            "fieldtype": "Data",
             "fieldname": "item_name",
             "options": "Item",
             "width": 200
         },
         {
             "label": _("Operation"),
-            "fieldtype": "Link",
+            "fieldtype": "Data",
             "fieldname": "operation",
             "options": "Operation",
             "width": 200
