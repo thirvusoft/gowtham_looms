@@ -1,3 +1,4 @@
+from erpnext.payroll.doctype.salary_slip.salary_slip import SalarySlip
 import frappe
 
 @frappe.whitelist()
@@ -13,4 +14,20 @@ def emp_salary(employee,start_date,end_date):
             total_amt = manufacture_qty * item_qty[i]['qty']
             total_wrk_amt +=total_amt
         return total_wrk_amt
+
+def paid_amount(doc,action):
+        doc.gross_pay = doc.total_paid_amount
+        doc.net_pay = (doc.gross_pay-doc.total_deduction)
+        doc.rounded_total = round(doc.net_pay)
+        SalarySlip.compute_year_to_date(doc)
+        #Calculation of Month to date
+        SalarySlip.compute_month_to_date(doc)
+        SalarySlip.compute_component_wise_year_to_date(doc)
+        SalarySlip.set_net_total_in_words(doc)
         
+def adv_amount(doc,action):
+    emp = frappe.get_value("Employee",doc.employee,"advance1_salary")
+    emps = doc.total_unpaid_amount + emp
+    frappe.db.set_value("Employee",doc.employee,"advance1_salary",emps)
+    
+  

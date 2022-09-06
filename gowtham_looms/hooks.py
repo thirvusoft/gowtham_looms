@@ -107,6 +107,12 @@ doc_events = {
 	'Item Group':{
 		"validate":"gowtham_looms.gowtham_looms.custom.py.item_group.validate"
 	},
+	'Salary Slip':{
+		"validate":"gowtham_looms.gowtham_looms.custom.py.salary_slip.paid_amount",
+		 "on_submit":"gowtham_looms.gowtham_looms.custom.py.salary_slip.adv_amount"
+		
+	}
+	
 }
 doctype_js = {
 	"Salary Slip" : "/gowtham_looms/custom/js/salary_slip.js",

@@ -244,6 +244,8 @@ def create_property_setter():
     # Payment Terms Property Setter
     make_property_setter('Payment Term','description','hidden',1,'Check')
     make_property_setter('Payment Term','section_break_8','collapsible',1,'Check')
+    #salary slip property setter
+    make_property_setter('Payment Term','description','hidden',1,'Check')
 
 
 def execute():
