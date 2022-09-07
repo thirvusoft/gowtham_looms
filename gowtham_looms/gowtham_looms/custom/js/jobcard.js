@@ -9,6 +9,5 @@ frappe.ui.form.on("Job Card", {
         frm.set_value('time_logs',[])
         frm.set_value('doc_onload',1)
         frm.refresh()
-        frm.save()
         }}
 })

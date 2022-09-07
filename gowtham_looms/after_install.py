@@ -4,6 +4,10 @@ from gowtham_looms.utils.manufacture.production_plan import production_plan_cust
 from gowtham_looms.utils.property_setter import create_property_setter
 from gowtham_looms.utils.manufacture.jobcard import jobcard_custom_fields
 from gowtham_looms.utils.stock.item_group import item_group_custom_fields
+from gowtham_looms.utils.stock.item_price import item_price_custom_fields
+from gowtham_looms.utils.sales.sales_order import sales_order_custom_fields
+from gowtham_looms.utils.hr.hr import employee_custom_fields
+from gowtham_looms.utils.hr.salary_slip import salary_slip
 def after_install():
     create_designation()
     custom_fields()
@@ -11,7 +15,10 @@ def after_install():
     create_property_setter()
     jobcard_custom_fields()
     item_group_custom_fields()
-    
+    item_price_custom_fields()
+    sales_order_custom_fields()
+    employee_custom_fields()
+    salary_slip()
     
 def execute():
     after_install()
