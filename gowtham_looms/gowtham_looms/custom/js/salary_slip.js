@@ -93,6 +93,7 @@ frappe.ui.form.on('Salary Slip',{
     },
     refresh: function(frm){
         var tot_amt = 0;
+        if(frm.doc.__unsaved == 1){
         if(frm.doc.pay_the_balace == 1){
             tot_amt = frm.doc.balance1_amount
         }
@@ -103,7 +104,8 @@ frappe.ui.form.on('Salary Slip',{
         cur_frm.set_value("total_amt",tot_amt)
         frm.set_value('total_amt',frm.doc.total_amt-frm.doc.total_advance_amount)
     }
-},
+}
+    }
 })
 
 frappe.ui.form.on('Salary Detail',{
