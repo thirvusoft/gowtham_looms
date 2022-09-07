@@ -26,8 +26,19 @@ def paid_amount(doc,action):
         SalarySlip.set_net_total_in_words(doc)
         
 def adv_amount(doc,action):
-    emp = frappe.get_value("Employee",doc.employee,"advance1_salary")
-    emps = doc.total_unpaid_amount + emp
-    frappe.db.set_value("Employee",doc.employee,"advance1_salary",emps)
+        emp = frappe.get_value("Employee",doc.employee,"advance1_salary")
+        emps = doc.total_unpaid_amount + emp
+        frappe.db.set_value("Employee",doc.employee,"advance1_salary",emps)
+
+def emp_balance_amt(doc,action):
+        emp = frappe.get_value("Employee",doc.employee,"advance1_salary")
+        emps = emp - doc.total_unpaid_amount
+        frappe.db.set_value("Employee",doc.employee,"advance1_salary",emps)     
+        
+@frappe.whitelist()
+def get_employee_advance_amount(name, start_date, end_date):
+    deduct = sum(frappe.get_all("Employee Advance", filters={'posting_date': ['between',(start_date, end_date)], 'employee':name, 'purpose':'Deduct from Salary'}, pluck='advance_amount')) or 0
+    return_ = sum(frappe.get_all("Employee Advance", filters={'posting_date': ['between',(start_date, end_date)], 'employee':name, 'purpose':'Return Advance'}, pluck='advance_amount')) or 0
+    return deduct-return_  
     
   

@@ -70,6 +70,14 @@ def salary_slip_custom_fields():
           insert_after = "balance1_amount",
           label = "Pay the Balance"
           ),
+          dict(
+          fieldname = "total_advance_amount",
+          fieldtype = "Data",
+          insert_after = "earnings",
+          label = "Total Advance Amount",
+          description = "Employee Advance Created from <a href = /app/employee-advance-tools>Employee Advance Tools<a>",
+          read_only =1
+          ),
         ],
     }
     create_custom_fields(salary_slip_custom_fields)

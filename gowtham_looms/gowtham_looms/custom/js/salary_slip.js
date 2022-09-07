@@ -1,11 +1,15 @@
+var balance_amount = 0;
 frappe.ui.form.on('Salary Slip',{
     employee:function(frm,cdn,cdt){
         frappe.db.get_value("Employee", {"name": frm.doc.employee}, "advance1_salary", (r) => {
             balance_amount=r.advance1_salary 
-            frm.set_value('balance_amount',r.advance1_salary)                   
+            frm.set_value('balance_amount',r.advance1_salary) 
+            
         });
-        frm.set_value('balance_amount',0)
+        
         if(frm.doc.employee && frm.doc.start_date && frm.doc.end_date && frm.doc.designation){
+            
+            get_employee_advance(frm)
             
             frappe.call({
                 method : "gowtham_looms.gowtham_looms.custom.py.salary_slip.emp_salary",
@@ -19,6 +23,7 @@ frappe.ui.form.on('Salary Slip',{
                     child.salary_component = "Basic"
                     child.amount = r.message
                     cur_frm.refresh()
+                    
                 }
                 
             })
@@ -30,7 +35,7 @@ frappe.ui.form.on('Salary Slip',{
     },
     start_date:function(frm,cdn,cdt){
         if(frm.doc.employee && frm.doc.start_date && frm.doc.end_date && frm.doc.designation){
-
+            get_employee_advance(frm)
             frappe.call({
                 method : "gowtham_looms.gowtham_looms.custom.py.salary_slip.emp_salary",
                 args :{
@@ -53,7 +58,7 @@ frappe.ui.form.on('Salary Slip',{
     },
     end_date:function(frm,cdn,cdt){
         if(frm.doc.employee && frm.doc.start_date && frm.doc.end_date && frm.doc.designation){
-    
+            get_employee_advance(frm)
             frappe.call({
                 method : "gowtham_looms.gowtham_looms.custom.py.salary_slip.emp_salary",
                 args :{
@@ -86,17 +91,19 @@ frappe.ui.form.on('Salary Slip',{
             frm.set_value('total_amt',frm.doc.total_amt-frm.doc.balance_amount)
         }
     },
-    refresh:  function(frm){
+    refresh: function(frm){
         var tot_amt = 0;
+        if(frm.doc.pay_the_balace == 1){
+            tot_amt = frm.doc.balance1_amount
+        }
+        if(frm.doc.earnings){
         for(let i=0;i<frm.doc.earnings.length;i++){
             tot_amt = frm.doc.earnings[i].amount + tot_amt
         }
         cur_frm.set_value("total_amt",tot_amt)
-    },
-    // employee: function(frm){
-        
-        
-    // }
+        frm.set_value('total_amt',frm.doc.total_amt-frm.doc.total_advance_amount)
+    }
+},
 })
 
 frappe.ui.form.on('Salary Detail',{
@@ -115,3 +122,17 @@ frappe.ui.form.on('Salary Detail',{
 
 })
 
+function get_employee_advance(frm){
+    frappe.call({
+        method:"gowtham_looms.gowtham_looms.custom.py.salary_slip.get_employee_advance_amount",
+        args:{
+            name: frm.doc.employee,
+            start_date:frm.doc.start_date,
+            end_date: frm.doc.end_date
+        },
+        callback(r){
+            frm.set_value('total_advance_amount', r.message)
+            frm.refresh_field('total_advance_amount')
+        }
+    })
+}
