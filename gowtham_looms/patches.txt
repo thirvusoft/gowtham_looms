@@ -8,3 +8,4 @@ gowtham_looms.utils.stock.item_group
 gowtham_looms.utils.sales.sales_order
 gowtham_looms.utils.hr.hr
 gowtham_looms.utils.hr.salary_slip
+gowtham_looms.utils.sales.sales_invoice
