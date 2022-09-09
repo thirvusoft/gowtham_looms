@@ -38,7 +38,6 @@ def paid_amount(doc,action):
         doc.gross_pay = doc.total_paid_amount or 0
         for i in doc.deductions:
                 tot_deduction = i.amount_to_pay + tot_deduction
-        print(tot_deduction)
         doc.net_pay = doc.gross_pay-tot_deduction
         doc.rounded_total = round(doc.net_pay)
         SalarySlip.compute_year_to_date(doc)

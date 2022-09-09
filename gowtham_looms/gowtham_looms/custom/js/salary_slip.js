@@ -1,6 +1,5 @@
 var balance_amount = 0;
 frappe.ui.form.on('Salary Slip',{
-
     employee:function(frm,cdn,cdt){
         frappe.db.get_value("Employee", {"name": frm.doc.employee}, "advance1_salary", (r) => {
             balance_amount=r.advance1_salary 
