@@ -1,5 +1,6 @@
 var balance_amount = 0;
 frappe.ui.form.on('Salary Slip',{
+
     employee:function(frm,cdn,cdt){
         frappe.db.get_value("Employee", {"name": frm.doc.employee}, "advance1_salary", (r) => {
             balance_amount=r.advance1_salary 
@@ -33,6 +34,7 @@ frappe.ui.form.on('Salary Slip',{
         }
       
     },
+
     start_date:function(frm,cdn,cdt){
         if(frm.doc.employee && frm.doc.start_date && frm.doc.end_date && frm.doc.designation){
             get_employee_advance(frm)
