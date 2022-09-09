@@ -9,6 +9,7 @@ from gowtham_looms.utils.sales.sales_order import sales_order_custom_fields
 from gowtham_looms.utils.hr.hr import employee_custom_fields
 from gowtham_looms.utils.hr.salary_slip import salary_slip
 from gowtham_looms.utils.sales.sales_invoice import sales_invoice_custom_fields
+from gowtham_looms.utils.Accounting.bank_account import bank_account_custom_fields
 def after_install():
     create_designation()
     custom_fields()
@@ -19,6 +20,7 @@ def after_install():
     item_price_custom_fields()
     sales_order_custom_fields()
     employee_custom_fields()
+    bank_account_custom_fields()
     salary_slip()
     sales_invoice_custom_fields()
     

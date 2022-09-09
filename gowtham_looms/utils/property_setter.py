@@ -281,8 +281,35 @@ def create_property_setter():
     make_property_setter('Employee','employment_details','hidden',1,'Check')
     make_property_setter('Employee','middle_name','hidden',1,'Check')
     make_property_setter('Employee','unsubscribed','hidden',1,'Check')
-    # Attendance
+    # Attendance Property Setter
     make_property_setter('Attendance','details_section','hidden',1,'Check')
+    # Customer Property Setter
+    make_property_setter('Customer','primary_address_and_contact_detail','collapsible',1,'Check')
+    make_property_setter('Customer','default_receivable_accounts','hidden',1,'Check')
+    make_property_setter('Customer','default_receivable_accounts','hidden',1,'Check')
+    make_property_setter('Customer','more_info','hidden',1,'Check')
+    make_property_setter('Customer','column_break_38','hidden',1,'Check')
+    make_property_setter('Customer','sales_team_section_break','hidden',1,'Check')
+    make_property_setter('Customer','sales_team_section_break','hidden',1,'Check')
+    make_property_setter('Customer','sales_team_section','hidden',1,'Check')
+    # Supplier Property Setter
+    make_property_setter('Supplier','primary_address_and_contact_detail_section','collapsible',1,'Check')
+    make_property_setter('Supplier','column_break2','hidden',1,'Check')
+    make_property_setter('Supplier','warn_rfqs','hidden',1,'Check')
+    make_property_setter('Supplier','warn_pos','hidden',1,'Check')
+    make_property_setter('Supplier','prevent_rfqs','hidden',1,'Check')
+    make_property_setter('Supplier','prevent_pos','hidden',1,'Check')
+    # Address Property Setter
+    make_property_setter('Address','linked_with','collapsible',1,'Check')
+    # Contact Property Setter
+    make_property_setter('Contact','more_info','hidden',1,'Check')
+    make_property_setter('Contact','contact_details','collapsible',1,'Check')
+    make_property_setter('Contact','sb_01','collapsible',1,'Check')
+    make_property_setter('Contact','middle_name','hidden',1,'Check')
+    # Bank Account
+    
+
+ 
     
 def execute():
     create_property_setter()
