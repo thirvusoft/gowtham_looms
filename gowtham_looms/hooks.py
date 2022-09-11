@@ -108,11 +108,12 @@ doc_events = {
 		"validate":"gowtham_looms.gowtham_looms.custom.py.item_group.validate"
 	},
 	'Salary Slip':{
-		"validate":"gowtham_looms.gowtham_looms.custom.py.salary_slip.paid_amount",
+		"validate":["gowtham_looms.gowtham_looms.custom.py.salary_slip.paid_amount",
+					"gowtham_looms.gowtham_looms.custom.py.salary_slip.payroll"],
 		"on_submit":"gowtham_looms.gowtham_looms.custom.py.salary_slip.adv_amount",
-		"on_cancel":"gowtham_looms.gowtham_looms.custom.py.salary_slip.emp_balance_amt"
-		
-	}
+		"on_cancel":"gowtham_looms.gowtham_looms.custom.py.salary_slip.emp_balance_amt"	
+	},
+	
 	
 }
 doctype_js = {
