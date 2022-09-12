@@ -87,6 +87,7 @@ frappe.ui.form.on('Salary Slip',{
                 frm.doc.earnings[i].amount_to_pay  += frm.doc.balance1_amount
                 frm.doc.earnings[i].amount  += frm.doc.balance1_amount
                 frm.doc.total_paid_amount += frm.doc.balance1_amount
+                console.log(frm.doc.total_paid_amount)
                 cur_frm.set_value("balance_amount",0)
                 }
                 else{

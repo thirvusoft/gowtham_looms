@@ -113,6 +113,9 @@ doc_events = {
 		"on_submit":"gowtham_looms.gowtham_looms.custom.py.salary_slip.adv_amount",
 		"on_cancel":"gowtham_looms.gowtham_looms.custom.py.salary_slip.emp_balance_amt"	
 	},
+	'Payroll Entry':{
+		"validate" : "gowtham_looms.gowtham_looms.custom.py.payroll_entry.payroll_advance_amount"
+	}
 	
 	
 }
