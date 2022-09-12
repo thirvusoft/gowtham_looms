@@ -308,10 +308,13 @@ def create_property_setter():
     make_property_setter('Contact','contact_details','collapsible',1,'Check')
     make_property_setter('Contact','sb_01','collapsible',1,'Check')
     make_property_setter('Contact','middle_name','hidden',1,'Check')
-    # Bank Account
-    
-
- 
+    # Maintenance Visit Property Setter
+    make_property_setter('Maintenance Visit','status','reqd',0,'Check')
+    make_property_setter('Maintenance Visit','status','hidden',1,'Check')
+    make_property_setter('Maintenance Visit','contact_info_section','collapsible',1,'Check')
+    make_property_setter('Warranty Claim','issue_details','collapsible',1,'Check')
+    make_property_setter('Warranty Claim','resolution_section','collapsible',1,'Check')
+    make_property_setter('Warranty Claim','serial_no','hidden',1,'Check')
     
 def execute():
     create_property_setter()
