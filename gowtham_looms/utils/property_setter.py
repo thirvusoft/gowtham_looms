@@ -251,6 +251,8 @@ def create_property_setter():
     make_property_setter('Salary Slip','deduct_tax_for_unclaimed_employee_benefits','hidden',1,'Check')
     make_property_setter('Salary Slip','deduct_tax_for_unsubmitted_tax_exemption_proof','hidden',1,'Check')
     make_property_setter('Salary Slip','salary_slip_based_on_timesheet','hidden',1,'Check')
+    make_property_setter('Salary Detail','amount','label','Amount To Pay','Data')
+
     # Salary Structure Property Setter
     make_property_setter('Salary Structure','salary_slip_based_on_timesheet','hidden',1,'Check')
     make_property_setter('Salary Structure','conditions_and_formula_variable_and_example','hidden',1,'Check')
@@ -306,10 +308,13 @@ def create_property_setter():
     make_property_setter('Contact','contact_details','collapsible',1,'Check')
     make_property_setter('Contact','sb_01','collapsible',1,'Check')
     make_property_setter('Contact','middle_name','hidden',1,'Check')
-    # Bank Account
-    
-
- 
+    # Maintenance Visit Property Setter
+    make_property_setter('Maintenance Visit','status','reqd',0,'Check')
+    make_property_setter('Maintenance Visit','status','hidden',1,'Check')
+    make_property_setter('Maintenance Visit','contact_info_section','collapsible',1,'Check')
+    make_property_setter('Warranty Claim','issue_details','collapsible',1,'Check')
+    make_property_setter('Warranty Claim','resolution_section','collapsible',1,'Check')
+    make_property_setter('Warranty Claim','serial_no','hidden',1,'Check')
     
 def execute():
     create_property_setter()
