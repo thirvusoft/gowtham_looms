@@ -1,11 +1,14 @@
 from email.policy import default
 from frappe import read_only
+import frappe
 from frappe.custom.doctype.custom_field.custom_field import create_custom_fields
 
 
 def salary_slip():
     salary_details_custom_fields()
     salary_slip_custom_fields()
+    create_defaults()
+    
 
 def salary_details_custom_fields():
     salary_details_custom_fields={
@@ -14,7 +17,15 @@ def salary_details_custom_fields():
           fieldname = "amount_to_pay",
           fieldtype = "Currency",
           insert_after = "amount",
-          label = "Amount to Pay"
+          label = "Amount"
+          ),
+          dict(
+          fieldname = "employee_advance",
+          fieldtype = "Link",
+          insert_after = "amount_to_pay",
+          label = "Employee Advance",
+          read_only =1,
+          options = "Employee Advance"
           ),
         ],
     }
@@ -73,10 +84,16 @@ def salary_slip_custom_fields():
           dict(
           fieldname = "total_advance_amount",
           fieldtype = "Data",
-          insert_after = "earnings",
+          insert_after = "get_emp_advance",
           label = "Total Advance Amount",
           description = "Employee Advance Created from <a href = /app/employee-advance-tools>Employee Advance Tools<a>",
           read_only =1
+          ),
+          dict(
+          fieldname = "get_emp_advance",
+          fieldtype = "Button",
+          insert_after = "earnings",
+          label = "Get Employee Advance",
           ),
         ],
     }
@@ -86,3 +103,12 @@ def salary_slip_custom_fields():
     
 def execute():
   salary_slip()
+
+def create_defaults():
+  if(not frappe.db.exists("Salary Component", "Advance")):
+          doc = frappe.new_doc("Salary Component")
+          doc.salary_component = "Advance"
+          doc.salary_component_abbr = 'ADV'
+          doc.type = 'Deduction'
+          doc.save(ignore_permissions=True)
+

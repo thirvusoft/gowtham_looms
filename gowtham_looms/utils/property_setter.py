@@ -251,6 +251,8 @@ def create_property_setter():
     make_property_setter('Salary Slip','deduct_tax_for_unclaimed_employee_benefits','hidden',1,'Check')
     make_property_setter('Salary Slip','deduct_tax_for_unsubmitted_tax_exemption_proof','hidden',1,'Check')
     make_property_setter('Salary Slip','salary_slip_based_on_timesheet','hidden',1,'Check')
+    make_property_setter('Salary Detail','amount','label','Amount To Pay','Data')
+
     # Salary Structure Property Setter
     make_property_setter('Salary Structure','salary_slip_based_on_timesheet','hidden',1,'Check')
     make_property_setter('Salary Structure','conditions_and_formula_variable_and_example','hidden',1,'Check')

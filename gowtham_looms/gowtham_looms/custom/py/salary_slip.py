@@ -1,5 +1,7 @@
 from erpnext.payroll.doctype.salary_slip.salary_slip import SalarySlip
 import frappe
+import json
+
 
 @frappe.whitelist()
 def emp_salary(employee,start_date,end_date):
@@ -15,29 +17,11 @@ def emp_salary(employee,start_date,end_date):
             total_wrk_amt +=total_amt
         return total_wrk_amt
 
-def payroll(doc,actions):
-        tot_amt = emp_salary(doc.employee,doc.start_date,doc.end_date)
-        emp_name = frappe.get_all("Employee",{"employee":doc.name,"company":doc.company},pluck="advance1_salary")
-        adv_amt = get_employee_advance_amount(doc.name, doc.start_date, doc.end_date)
-        if doc.employee:
-                com = [i.salary_component for i in doc.earnings]
-                if "Basic" not in com:
-                        doc.append('earnings',{'salary_component':'Basic', 'amount':tot_amt})
-                for i in doc.earnings:
-                        total_amt = 0
-                        total_amt = i.amount + total_amt
-                        doc.total_amt = total_amt 
-                doc.balance_amount = emp_name 
-                doc.total_advance_amount = adv_amt
-                doc.total_amt = doc.total_amt - doc.total_advance_amount    
-        
-                                
-
 def paid_amount(doc,action):
         tot_deduction = 0
         doc.gross_pay = doc.total_paid_amount or 0
         for i in doc.deductions:
-                tot_deduction = i.amount_to_pay + tot_deduction
+                tot_deduction = i.amount or 0 + tot_deduction
         doc.net_pay = doc.gross_pay-tot_deduction
         doc.rounded_total = round(doc.net_pay)
         SalarySlip.compute_year_to_date(doc)
@@ -47,6 +31,7 @@ def paid_amount(doc,action):
         SalarySlip.set_net_total_in_words(doc)
         
 def adv_amount(doc,action):
+        update_employee_advance(doc)
         emp = frappe.get_value("Employee",doc.employee,"advance1_salary")
         emps = doc.total_unpaid_amount + emp
         frappe.db.set_value("Employee",doc.employee,"advance1_salary",emps)
@@ -54,12 +39,76 @@ def adv_amount(doc,action):
 def emp_balance_amt(doc,action):
         emp = frappe.get_value("Employee",doc.employee,"advance1_salary")
         emps = emp - doc.total_unpaid_amount
-        frappe.db.set_value("Employee",doc.employee,"advance1_salary",emps)     
+        frappe.db.set_value("Employee",doc.employee,"advance1_salary",emps)
+        for i in doc.deductions:
+                if(i.employee_advance):
+                        amt = frappe.db.get_value('Employee Advance', i.employee_advance, 'remaining_amount')
+                        frappe.db.set_value('Employee Advance', i.employee_advance, 'remaining_amount', amt+i.amount)     
         
 @frappe.whitelist()
 def get_employee_advance_amount(name, start_date, end_date):
-    deduct = sum(frappe.get_all("Employee Advance", filters={'posting_date': ['between',(start_date, end_date)], 'employee':name, 'purpose':'Deduct from Salary'}, pluck='advance_amount')) or 0
-    return_ = sum(frappe.get_all("Employee Advance", filters={'posting_date': ['between',(start_date, end_date)], 'employee':name, 'purpose':'Return Advance'}, pluck='advance_amount')) or 0
+    deduct = sum(frappe.get_all("Employee Advance", filters={'employee':name, 'purpose':'Deduct from Salary'}, pluck='remaining_amount')) or 0
+    return_ = sum(frappe.get_all("Employee Advance", filters={'employee':name, 'purpose':'Return Advance'}, pluck='advance_amount')) or 0
     return deduct-return_  
     
-  
+def payroll(doc,action):
+        tot_amt = emp_salary(doc.employee,doc.start_date,doc.end_date)
+        bal_salary = frappe.get_value("Employee",{"name":doc.employee,"company":doc.company},"advance1_salary")
+        deduct = frappe.get_value("Employee Advance", {'employee':doc.employee, 'purpose':'Deduct from Salary'},'remaining_amount')
+        if doc.employee:
+                com = [i.salary_component for i in doc.earnings]
+                if "Basic" not in com:
+                        doc.append('earnings',{'salary_component':'Basic', 'amount_to_pay':tot_amt})
+                for i in doc.earnings:
+                        total_amt = 0
+                        total_amt = i.amount_to_pay + total_amt
+                        doc.total_amt = total_amt
+                        doc.total_advance_amount = deduct 
+                        doc.total_amt = doc.total_amt - doc.total_advance_amount 
+                doc.balance_amount = bal_salary 
+                doc.balance1_amount =  bal_salary
+                
+                   
+
+@frappe.whitelist()
+def get_advance_amounts(employee):
+    adv = frappe.get_all(
+            "Employee Advance",
+            filters=
+                {'employee':employee, 'purpose':'Deduct from Salary', 'remaining_amount': ['>', 0]}, 
+            fields=['name', 'remaining_amount'])
+    fields = []
+    for i in range(len(adv)):
+        fields.append({'label':'Name','fieldname':f'name{i}', 'fieldtype':'Link', 'options':'Employee Advance', 'default':adv[i]['name'], 'read_only':1})
+        fields.append({'fieldname':f'col_brk1{i}', 'fieldtype':'Column Break'})
+        fields.append({'fieldname':f'adv_amt{i}', 'label':'Advance Amount', 'fieldtype':'Currency', 'default':adv[i]['remaining_amount'], 'read_only':1})
+        fields.append({'fieldname':f'col_brk2{i}', 'fieldtype':'Column Break'})
+        fields.append({'fieldname':f'amt_take{i}', 'label':'Amount Taken', 'fieldtype':'Currency'})
+        fields.append({'fieldname':f'sec_brk1{i}', 'fieldtype':'Section Break'})
+    
+    fields.append({'fieldname':'dataaa', 'fieldtype':'Data', 'hidden':1})   
+    fields.append({'fieldname':'col_brk', 'fieldtype':'Column Break'})
+    fields.append({'fieldname':'total_amount', 'label':'Total Amount', 'fieldtype':'Currency', 'read_only':1})
+    return fields, len(adv)
+
+@frappe.whitelist()
+def change_remaining_amount(data, length):
+    from gowtham_looms.utils.hr.salary_slip import create_defaults
+    create_defaults()
+    data = json.loads(data)
+    amount = 0 
+    deductions = []
+    for i in range(int(length)):
+        amount += data[f'amt_take{i}']
+        if(data[f'amt_take{i}'] > 0):
+                if(data[f'amt_take{i}'] > data[f'adv_amt{i}']):
+                       frappe.throw('Amount Taken should not be greater than Advance amount.')
+                deductions.append({'salary_component':'Advance','amount':  data[f'amt_take{i}'], 'employee_advance': data[f'name{i}']})
+        # frappe.db.set_value('Employee Advance', data[f'name{i}'], 'remaining_amount', data[f'adv_amt{i}'] - data[f'amt_take{i}'])
+    return deductions
+
+def update_employee_advance(doc):
+    for i in doc.deductions:
+        if(i.employee_advance):
+            amt = frappe.db.get_value('Employee Advance', i.employee_advance, 'remaining_amount')
+            frappe.db.set_value('Employee Advance', i.employee_advance, 'remaining_amount', amt-i.amount)
