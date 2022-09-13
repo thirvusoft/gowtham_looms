@@ -105,7 +105,8 @@ override_doctype_class = {
 # }
 doc_events = {
 	'Item Group':{
-		"validate":"gowtham_looms.gowtham_looms.custom.py.item_group.validate"
+		"validate":"gowtham_looms.gowtham_looms.custom.py.item_group.validate",
+		
 	},
 	'Salary Slip':{
 		"validate":["gowtham_looms.gowtham_looms.custom.py.salary_slip.paid_amount",
