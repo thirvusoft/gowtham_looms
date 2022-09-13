@@ -58,29 +58,32 @@ def payroll(doc,action):
         emp_adv_amount = frappe.get_doc("Payroll Entry",doc.payroll_entry)
         if doc.employee:
                 for i in emp_adv_amount.employees:
-                        if doc.deductions:
-                                com = [j.salary_component for j in doc.deductions]
-                                if "Advance" not in com:
-                                        doc.append('deductions',{'salary_component':'Advance', 'amount':float(i.emp_repay_amt)})
-                        else:
-                                doc.update({
-                                        "deductions" : [{'salary_component':'Advance', 'amount':float(i.emp_repay_amt)}]})
-                        if doc.designation != "Contractor":
-                                tot_earnings = 0
-                                for i in doc.earnings:
-                                        tot_earnings = i.amount or 0 + tot_earnings
-                                        doc.gross_pay = tot_earnings
-                                        tott_deduction = 0
-                                        for i in doc.deductions:
-                                                tott_deduction = i.amount or 0 + tott_deduction
-                                                doc.total_deduction = tott_deduction
-                                        doc.net_pay = doc.gross_pay-tott_deduction
-                                        doc.rounded_total = round(doc.net_pay)
-                                        SalarySlip.compute_year_to_date(doc)
-                                        #Calculation of Month to date
-                                        SalarySlip.compute_month_to_date(doc)
-                                        SalarySlip.compute_component_wise_year_to_date(doc)
-                                        SalarySlip.set_net_total_in_words(doc)
+                        if i.employee == doc.employee:
+                                if doc.deductions:
+                                        com = [j.salary_component for j in doc.deductions]
+                                        if "Advance" not in com:
+                                                if float(i.emp_repay_amt) > 0:
+                                                        doc.append('deductions',{'salary_component':'Advance', 'amount':float(i.emp_repay_amt)})
+                                else:
+                                        if float(i.emp_repay_amt) > 0:
+                                                doc.update({
+                                                        "deductions" : [{'salary_component':'Advance', 'amount':float(i.emp_repay_amt)}]})
+                                if doc.designation != "Contractor":
+                                        tot_earnings = 0
+                                        for i in doc.earnings:
+                                                tot_earnings = i.amount or 0 + tot_earnings
+                                                doc.gross_pay = tot_earnings
+                                                tott_deduction = 0
+                                                for i in doc.deductions:
+                                                        tott_deduction = i.amount or 0 + tott_deduction
+                                                        doc.total_deduction = tott_deduction
+                                                doc.net_pay = doc.gross_pay-tott_deduction
+                                                doc.rounded_total = round(doc.net_pay)
+                                                SalarySlip.compute_year_to_date(doc)
+                                                #Calculation of Month to date
+                                                SalarySlip.compute_month_to_date(doc)
+                                                SalarySlip.compute_component_wise_year_to_date(doc)
+                                                SalarySlip.set_net_total_in_words(doc)
                 com = [i.salary_component for i in doc.earnings]
                 if "Basic" not in com:
                         doc.append('earnings',{'salary_component':'Basic', 'amount_to_pay':tot_amt})
@@ -90,8 +93,9 @@ def payroll(doc,action):
                         doc.total_amt = total_amt
                         doc.total_advance_amount = deduct 
                         doc.total_amt = doc.total_amt - doc.total_advance_amount 
-                doc.balance_amount = bal_salary 
-                doc.balance1_amount =  bal_salary 
+                if doc.is_new():
+                        doc.balance_amount = bal_salary 
+                        doc.balance1_amount =  bal_salary 
                 
                         
                                 

@@ -283,6 +283,7 @@ def create_property_setter():
     make_property_setter('Employee','employment_details','hidden',1,'Check')
     make_property_setter('Employee','middle_name','hidden',1,'Check')
     make_property_setter('Employee','unsubscribed','hidden',1,'Check')
+    make_property_setter('Employee','sb53','hidden',1,'Check')
     # Attendance Property Setter
     make_property_setter('Attendance','details_section','hidden',1,'Check')
     # Customer Property Setter
@@ -315,6 +316,16 @@ def create_property_setter():
     make_property_setter('Warranty Claim','issue_details','collapsible',1,'Check')
     make_property_setter('Warranty Claim','resolution_section','collapsible',1,'Check')
     make_property_setter('Warranty Claim','serial_no','hidden',1,'Check')
+    # Payroll Entry Property Setter
+    make_property_setter('Payroll Entry','cost_center','default',f'Main - {abbr}','Text Editor')
+    make_property_setter('Payroll Entry','project','hidden',1,'Check')
+    make_property_setter('Payroll Entry','cost_center','hidden',1,'Check')
+    make_property_setter('Payroll Entry','salary_slip_based_on_timesheet','hidden',1,'Check')
+    make_property_setter('Payroll Entry','section_break_8','collapsible',1,'Check')
+    make_property_setter('Payroll Entry','select_payroll_period','collapsible',1,'Check')
+    make_property_setter('Payroll Entry','account','collapsible',1,'Check')
+
+    
     
 def execute():
     create_property_setter()
