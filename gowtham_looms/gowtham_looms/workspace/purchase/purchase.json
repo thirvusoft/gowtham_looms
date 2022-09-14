@@ -13,7 +13,7 @@
  "is_standard": 1,
  "label": "Purchase",
  "links": [],
- "modified": "2022-08-29 16:12:28.476561",
+ "modified": "2022-09-12 13:08:14.427619",
  "modified_by": "Administrator",
  "module": "Gowtham Looms",
  "name": "Purchase",
@@ -46,5 +46,5 @@
    "type": "DocType"
   }
  ],
- "shortcuts_label": "Purchase"
+ "shortcuts_label": "Gowtham Looms"
 }

@@ -177,6 +177,7 @@ frappe.ui.form.on('Salary Detail',{
             balance_amount = (frm.doc.earnings[i].amount_to_pay - frm.doc.earnings[i].amount) + balance_amount
             cur_frm.set_value("total_paid_amount",amount_pay) 
             cur_frm.set_value("total_unpaid_amount",balance_amount) 
+            
              
         
         }

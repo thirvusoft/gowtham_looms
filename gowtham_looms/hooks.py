@@ -105,7 +105,8 @@ override_doctype_class = {
 # }
 doc_events = {
 	'Item Group':{
-		"validate":"gowtham_looms.gowtham_looms.custom.py.item_group.validate"
+		"validate":"gowtham_looms.gowtham_looms.custom.py.item_group.validate",
+		
 	},
 	'Salary Slip':{
 		"validate":["gowtham_looms.gowtham_looms.custom.py.salary_slip.paid_amount",
@@ -113,6 +114,9 @@ doc_events = {
 		"on_submit":"gowtham_looms.gowtham_looms.custom.py.salary_slip.adv_amount",
 		"on_cancel":"gowtham_looms.gowtham_looms.custom.py.salary_slip.emp_balance_amt"	
 	},
+	'Payroll Entry':{
+		"validate" : "gowtham_looms.gowtham_looms.custom.py.payroll_entry.payroll_advance_amount"
+	}
 	
 	
 }
@@ -128,6 +132,7 @@ doctype_js = {
 	"Purchase Invoice" : "/gowtham_looms/custom/js/purchase_invoice.js",
 	"Sales Order" : "/gowtham_looms/custom/js/sales_order.js",
 	"Sales Invoice" : "/gowtham_looms/custom/js/sales_invoice.js",
+	"Payroll Entry" : "/gowtham_looms/custom/js/payroll_entry.js"
 }
 # Scheduled Tasks
 # ---------------

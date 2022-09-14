@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:{designation}-{DD}-{MM}-{YYYY}",
+ "autoname": "format:{designation}-{DD}-{MM}-{YYYY}-{#}",
  "creation": "2022-09-06 19:08:59.959464",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -49,7 +49,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2022-09-06 19:14:51.025033",
+ "modified": "2022-09-12 14:52:35.736872",
  "modified_by": "Administrator",
  "module": "Gowtham Looms",
  "name": "Employee Advance Tools",

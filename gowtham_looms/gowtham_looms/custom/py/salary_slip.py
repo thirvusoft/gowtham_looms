@@ -54,19 +54,53 @@ def get_employee_advance_amount(name, start_date, end_date):
 def payroll(doc,action):
         tot_amt = emp_salary(doc.employee,doc.start_date,doc.end_date)
         bal_salary = frappe.get_value("Employee",{"name":doc.employee,"company":doc.company},"advance1_salary")
-        deduct = frappe.get_value("Employee Advance", {'employee':doc.employee, 'purpose':'Deduct from Salary'},'remaining_amount')
+        deduct = sum(frappe.get_all("Employee Advance", {'employee':doc.employee, 'purpose':'Deduct from Salary'},pluck='remaining_amount'))
+        emp_adv_amount = frappe.get_doc("Payroll Entry",doc.payroll_entry)
         if doc.employee:
+                for i in emp_adv_amount.employees:
+                        if i.employee == doc.employee:
+                                if doc.deductions:
+                                        com = [j.salary_component for j in doc.deductions]
+                                        if "Advance" not in com:
+                                                if float(i.emp_repay_amt) > 0:
+                                                        doc.append('deductions',{'salary_component':'Advance', 'amount':float(i.emp_repay_amt)})
+                                else:
+                                        if float(i.emp_repay_amt) > 0:
+                                                doc.update({
+                                                        "deductions" : [{'salary_component':'Advance', 'amount':float(i.emp_repay_amt)}]})
+                                if doc.designation != "Contractor":
+                                        tot_earnings = 0
+                                        for i in doc.earnings:
+                                                tot_earnings = i.amount or 0 + tot_earnings
+                                                doc.gross_pay = tot_earnings
+                                                tott_deduction = 0
+                                                for i in doc.deductions:
+                                                        tott_deduction = i.amount or 0 + tott_deduction
+                                                        doc.total_deduction = tott_deduction
+                                                doc.net_pay = doc.gross_pay-tott_deduction
+                                                doc.rounded_total = round(doc.net_pay)
+                                                SalarySlip.compute_year_to_date(doc)
+                                                #Calculation of Month to date
+                                                SalarySlip.compute_month_to_date(doc)
+                                                SalarySlip.compute_component_wise_year_to_date(doc)
+                                                SalarySlip.set_net_total_in_words(doc)
                 com = [i.salary_component for i in doc.earnings]
                 if "Basic" not in com:
                         doc.append('earnings',{'salary_component':'Basic', 'amount_to_pay':tot_amt})
                 for i in doc.earnings:
                         total_amt = 0
-                        total_amt = i.amount_to_pay + total_amt
+                        total_amt = i.amount_to_pay or 0 + total_amt
                         doc.total_amt = total_amt
                         doc.total_advance_amount = deduct 
                         doc.total_amt = doc.total_amt - doc.total_advance_amount 
-                doc.balance_amount = bal_salary 
-                doc.balance1_amount =  bal_salary
+                if doc.is_new():
+                        doc.balance_amount = bal_salary 
+                        doc.balance1_amount =  bal_salary 
+                
+                        
+                                
+                                
+        
                 
                    
 

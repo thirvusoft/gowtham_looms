@@ -13,7 +13,7 @@
  "is_standard": 1,
  "label": "HR User",
  "links": [],
- "modified": "2022-08-30 11:50:45.159509",
+ "modified": "2022-09-12 13:06:42.815021",
  "modified_by": "Administrator",
  "module": "Gowtham Looms",
  "name": "HR User",
@@ -55,6 +55,12 @@
    "doc_view": "",
    "label": "ATTENDANCE",
    "link_to": "Attendance",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "",
+   "label": "SALARY SLIP",
+   "link_to": "Salary Slip",
    "type": "DocType"
   }
  ],

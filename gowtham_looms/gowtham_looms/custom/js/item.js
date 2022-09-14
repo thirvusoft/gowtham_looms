@@ -19,14 +19,16 @@ frappe.ui.form.on("Item", {
     }
     },
     item_group: function(frm){
-        if(frm.item_group == "Looms"){
+        if(frm.doc.item_group == "Looms"){
             frm.set_value('is_purchase_item',0)
             frm.set_value('include_item_in_manufacturing',0)
+            frm.refresh()
            
         }
         else{
             frm.set_value('is_purchase_item',1)
             frm.set_value('include_item_in_manufacturing',1)
+            frm.refresh()
         }
     },
     abbr: function(frm) {

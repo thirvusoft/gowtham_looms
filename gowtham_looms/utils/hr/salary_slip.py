@@ -40,19 +40,22 @@ def salary_slip_custom_fields():
           fieldtype = "Currency",
           insert_after = "deduction",
           label = "Total Amount",
-          read_only =1
+          read_only =1,
+          depends_on = "eval:doc.designation == 'Contractor'"
           ),
           dict(
           fieldname = "total_paid_amount",
           fieldtype = "Currency",
           insert_after = "total_amt",
-          label = "Total Paid Amount"
+          label = "Total Paid Amount",
+          depends_on = "eval:doc.designation == 'Contractor'"
           ),
           dict(
           fieldname = "total_unpaid_amount",
           fieldtype = "Currency",
           insert_after = "total_paid_amount",
-          label = "Total unpaid Amount"
+          label = "Total unpaid Amount",
+          depends_on = "eval:doc.designation == 'Contractor'"
           ),
           dict(
           fieldname = "sectionbreak1",
@@ -64,7 +67,8 @@ def salary_slip_custom_fields():
           fieldtype = "Currency",
           insert_after = "payroll_frequency",
           label = "Balance Amount",
-          read_only = 1
+          read_only = 1,
+          depends_on = "eval:doc.designation == 'Contractor'"
           ),
           dict(
           fieldname = "balance1_amount",
@@ -73,13 +77,15 @@ def salary_slip_custom_fields():
           label = "Balance Amount",
           fetch_from = "employee.advance1_salary",
           read_only = 1,
-          hidden =1
+          hidden =1,
+          depends_on = "eval:doc.designation == 'Contractor'"
           ),
           dict(
           fieldname = "pay_the_balace",
           fieldtype = "Check",
           insert_after = "balance1_amount",
-          label = "Pay the Balance"
+          label = "Pay the Balance",
+          depends_on = "eval:doc.designation == 'Contractor'"
           ),
           dict(
           fieldname = "total_advance_amount",
@@ -87,7 +93,8 @@ def salary_slip_custom_fields():
           insert_after = "get_emp_advance",
           label = "Total Advance Amount",
           description = "Employee Advance Created from <a href = /app/employee-advance-tools>Employee Advance Tools<a>",
-          read_only =1
+          read_only =1,
+          depends_on = "eval:doc.designation == 'Contractor'"
           ),
           dict(
           fieldname = "get_emp_advance",
