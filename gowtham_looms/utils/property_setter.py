@@ -10,7 +10,8 @@ def create_property_setter():
     make_property_setter('Item','weight_uom','hidden', 1, 'Check')
     make_property_setter('Item','valuation_method','hidden', 1, 'Check')
     make_property_setter('Item','unit_of_measure_conversion','hidden', 1, 'Check')
-    make_property_setter('Item','serial_nos_and_batches','hidden', 1, 'Check')
+    make_property_setter('Item','serial_nos_and_batches','hidden', 0, 'Check')
+    make_property_setter('Item','has_batch_no','hidden', 1, 'Check')
     make_property_setter('Item','is_item_from_hub','hidden', 1, 'Check')
     make_property_setter('Item','image','hidden', 0, 'Check')
     make_property_setter('Item','defaults','collapsible', 1, 'Check')
@@ -48,6 +49,7 @@ def create_property_setter():
     make_property_setter('Item','over_delivery_receipt_allowance','hidden', 1, 'Check')
     make_property_setter('Item','over_billing_allowance','hidden', 1, 'Check')
     make_property_setter('Item','purchase_details','hidden',1,'Check')
+    make_property_setter('Item','is_nil_exempt','hidden',1,'Check')
     # Item Group Property Setter
     make_property_setter('Item Group','sb9','hidden', 1, 'Check')
     make_property_setter('Item Group','defaults','hidden', 1, 'Check')
@@ -209,6 +211,7 @@ def create_property_setter():
     make_property_setter('Sales Invoice','section_break2','hidden',1,'Check')   
     make_property_setter('Sales Invoice','more_info','hidden',1,'Check')
     make_property_setter('Sales Invoice','items_section','collapsible',1,'Check')
+    make_property_setter('Sales Invoice','is_pos','hidden',1,'Check')
     # Material Request Property Setter
     make_property_setter('Material Request','schedule_date','label','Required Date','Data')
     make_property_setter('Material Request','scan_barcode','hidden',1,'Check')

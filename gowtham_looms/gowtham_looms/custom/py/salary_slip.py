@@ -4,18 +4,29 @@ import json
 
 
 @frappe.whitelist()
-def emp_salary(employee,start_date,end_date):
-        total_wrk_amt = 0
-        jobcard = frappe.get_all("Job Card Time Log",filters={'docstatus':1,'employee':employee,'from_time': ['between',(start_date,end_date)],'to_time':['between',(start_date,end_date)]}, pluck = 'parent')
-        job_card_name = list(set(jobcard))
-        wrk_order = frappe.get_all("Job Card",filters={'docstatus':1,'status':'Completed','name': ['in',job_card_name]}, pluck = 'work_order')
-        wrk_order_name = list(set(wrk_order))
-        item_qty = frappe.get_all("Work Order",filters={'docstatus':1,'status':'Completed','name': ['in',wrk_order_name]}, fields = ['production_item','qty'])
-        for i in range(len(item_qty)):
-            manufacture_qty = frappe.get_value("Item",item_qty[i]['production_item'] ,"ts_cost_per_manufacturing")
-            total_amt = manufacture_qty * item_qty[i]['qty']
-            total_wrk_amt +=total_amt
-        return total_wrk_amt
+def emp_salary(employee,start_date,end_date,designation):
+        if designation == "Contractor":
+                total_wrk_amt = 0
+                qty = {}
+                jobcard = frappe.get_all("Job Card Time Log",filters={'docstatus':1,'employee':employee,'from_time': ['between',(start_date,end_date)]}, fields = ['parent', 'completed_qty as qty'])
+                jc_names = [i['parent'] for i in jobcard]
+                job_card_name = list(set(jc_names))
+                wrk_order = frappe.get_all("Job Card",filters={'docstatus':1,'status':'Completed','name': ['in',job_card_name]}, fields = ['work_order', 'name'])
+                for child in jobcard:
+                        for parent in wrk_order:
+                                if(parent['name'] == child['parent']):
+                                        if(parent['work_order'] in qty.keys()):
+                                                qty[parent['work_order']].append(child['qty'])
+                                        else:
+                                                qty[parent['work_order']] = [child['qty']]
+                wo_names = [i['work_order'] for i in wrk_order]
+                wrk_order_name = list(set(wo_names))
+                item_qty = frappe.get_all("Work Order",filters={'docstatus':1,'status':'Completed','name': ['in',wrk_order_name]}, fields = ['production_item','name'])
+                for i in range(len(item_qty)):
+                        manufacture_cost = frappe.get_value("Item",item_qty[i]['production_item'] ,"ts_cost_per_manufacturing")
+                        total_amt = manufacture_cost * (sum(qty[item_qty[i]['name']])/ len(qty[item_qty[i]['name']]) or 1)
+                        total_wrk_amt +=total_amt
+                return total_wrk_amt
 
 def paid_amount(doc,action):
         tot_deduction = 0
@@ -34,11 +45,15 @@ def adv_amount(doc,action):
         update_employee_advance(doc)
         emp = frappe.get_value("Employee",doc.employee,"advance1_salary")
         emps = doc.total_unpaid_amount + emp
+        if(doc.pay_the_balace):
+                emps = doc.total_unpaid_amount
         frappe.db.set_value("Employee",doc.employee,"advance1_salary",emps)
 
 def emp_balance_amt(doc,action):
         emp = frappe.get_value("Employee",doc.employee,"advance1_salary")
         emps = emp - doc.total_unpaid_amount
+        if(doc.pay_the_balace):
+                emps += doc.balance1_amount
         frappe.db.set_value("Employee",doc.employee,"advance1_salary",emps)
         for i in doc.deductions:
                 if(i.employee_advance):
@@ -52,9 +67,10 @@ def get_employee_advance_amount(name, start_date, end_date):
     return deduct-return_  
     
 def payroll(doc,action):
-        tot_amt = emp_salary(doc.employee,doc.start_date,doc.end_date)
+        tot_amt = emp_salary(doc.employee,doc.start_date,doc.end_date,doc.designation)
         bal_salary = frappe.get_value("Employee",{"name":doc.employee,"company":doc.company},"advance1_salary")
         deduct = sum(frappe.get_all("Employee Advance", {'employee':doc.employee, 'purpose':'Deduct from Salary'},pluck='remaining_amount'))
+        if(not doc.get('payroll_entry')):return
         emp_adv_amount = frappe.get_doc("Payroll Entry",doc.payroll_entry)
         if doc.employee:
                 for i in emp_adv_amount.employees:
@@ -62,12 +78,12 @@ def payroll(doc,action):
                                 if doc.deductions:
                                         com = [j.salary_component for j in doc.deductions]
                                         if "Advance" not in com:
-                                                if float(i.emp_repay_amt) > 0:
-                                                        doc.append('deductions',{'salary_component':'Advance', 'amount':float(i.emp_repay_amt)})
+                                                if i.emp_repay_amt:
+                                                        doc.append('deductions',{'salary_component':'Advance', 'amount':float(i.emp_repay_amt),'amount_to_pay':float(i.emp_repay_amt)})
                                 else:
-                                        if float(i.emp_repay_amt) > 0:
+                                        if i.emp_repay_amt:
                                                 doc.update({
-                                                        "deductions" : [{'salary_component':'Advance', 'amount':float(i.emp_repay_amt)}]})
+                                                        "deductions" : [{'salary_component':'Advance', 'amount':float(i.emp_repay_amt), 'amount_to_pay':float(i.emp_repay_amt)}]})
                                 if doc.designation != "Contractor":
                                         tot_earnings = 0
                                         for i in doc.earnings:
@@ -87,12 +103,11 @@ def payroll(doc,action):
                 com = [i.salary_component for i in doc.earnings]
                 if "Basic" not in com:
                         doc.append('earnings',{'salary_component':'Basic', 'amount_to_pay':tot_amt})
-                for i in doc.earnings:
-                        total_amt = 0
+                total_amt = 0
+                for i in doc.earnings:   
                         total_amt = i.amount_to_pay or 0 + total_amt
-                        doc.total_amt = total_amt
-                        doc.total_advance_amount = deduct 
-                        doc.total_amt = doc.total_amt - doc.total_advance_amount 
+                doc.total_amt = total_amt
+                doc.total_advance_amount = deduct 
                 if doc.is_new():
                         doc.balance_amount = bal_salary 
                         doc.balance1_amount =  bal_salary 
