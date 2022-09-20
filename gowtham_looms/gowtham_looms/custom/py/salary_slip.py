@@ -106,8 +106,11 @@ def payroll(doc,action):
                 total_amt = 0
                 for i in doc.earnings:   
                         total_amt = i.amount_to_pay or 0 + total_amt
+                
                 doc.total_amt = total_amt
-                doc.total_advance_amount = deduct 
+                doc.total_advance_amount = deduct
+                doc.total_amt =  doc.total_amt - doc.total_advance_amount 
+                
                 if doc.is_new():
                         doc.balance_amount = bal_salary 
                         doc.balance1_amount =  bal_salary 
