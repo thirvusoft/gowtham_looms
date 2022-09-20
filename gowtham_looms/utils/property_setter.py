@@ -70,6 +70,9 @@ def create_property_setter():
     make_property_setter('Stock Reconciliation','expense_account','depends_on', '!company', 'Text Editor')
     make_property_setter('Stock Reconciliation','cost_center','default',f'Main - {abbr}','Text Editor')
     make_property_setter('Stock Reconciliation','cost_center','depends_on', '!company', 'Text Editor')
+    make_property_setter('Salary Structure Assignment','base','hidden', 1, 'Check')
+    make_property_setter('Salary Structure Assignment','variable','hidden', 1, 'Check')
+    make_property_setter('Salary Component','condition_and_formula','hidden', 1, 'Check')
     # BOM Property Setter
     make_property_setter('BOM','project','hidden', 1, 'Check')
     make_property_setter('BOM','currency_detail','hidden', 0, 'Check')
