@@ -49,7 +49,6 @@ frappe.ui.form.on("Maintenance Visit", {
                 },
             callback(si){
                 frappe.model.sync(si.message);
-                console.log(si.message.doctype, si.message.name, si)
 				frappe.set_route('Form', si.message.doctype, si.message.name);
             }
         }) 

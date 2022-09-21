@@ -121,7 +121,8 @@ doc_events = {
 	# 	"validate" : "gowtham_looms.gowtham_looms.custom.py.sales_invoice.create_sales_invoice"
 	# },
 	'Payment Entry' :{
-		"on_submit" : "gowtham_looms.gowtham_looms.custom.py.sales_invoice.change_mv_status"
+		"on_submit" : "gowtham_looms.gowtham_looms.custom.py.sales_invoice.change_mv_status",
+		"on_cancel" : "gowtham_looms.gowtham_looms.custom.py.sales_invoice.change_mv_status"
 	}
 	
 	
