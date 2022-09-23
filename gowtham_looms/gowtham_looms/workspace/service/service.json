@@ -1,6 +1,13 @@
 {
  "category": "Modules",
- "charts": [],
+ "charts": [
+  {
+   "chart_name": "Maintenance Schedule Count"
+  },
+  {
+   "chart_name": "Outgoing Bills (Sales Invoice)"
+  }
+ ],
  "creation": "2022-09-20 12:25:30.651837",
  "developer_mode_only": 0,
  "disable_user_customization": 1,
@@ -14,7 +21,7 @@
  "is_standard": 1,
  "label": "Service",
  "links": [],
- "modified": "2022-09-20 12:38:18.933350",
+ "modified": "2022-09-21 18:03:07.624369",
  "modified_by": "Administrator",
  "module": "Gowtham Looms",
  "name": "Service",
@@ -25,14 +32,14 @@
  "shortcuts": [
   {
    "doc_view": "",
-   "label": "SALES INVOICE",
-   "link_to": "Sales Invoice",
+   "label": "SERIAL NO",
+   "link_to": "Serial No",
    "type": "DocType"
   },
   {
    "doc_view": "",
-   "label": "SALES ORDER",
-   "link_to": "Sales Order",
+   "label": "WARRANTY CLAIM",
+   "link_to": "Warranty Claim",
    "type": "DocType"
   },
   {
@@ -49,8 +56,15 @@
   },
   {
    "doc_view": "",
-   "label": "WARRANTY CLAIM",
-   "link_to": "Warranty Claim",
+   "label": "SALES INVOICE",
+   "link_to": "Sales Invoice",
+   "stats_filter": "{\"maintenance_visit\":[\"is\", \"set\"]}",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "",
+   "label": "SALES ORDER",
+   "link_to": "Sales Order",
    "type": "DocType"
   },
   {
