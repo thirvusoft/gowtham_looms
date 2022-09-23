@@ -8,7 +8,7 @@ def employee_custom_fields():
           fieldname = "advance1_salary",
           fieldtype = "Currency",
           insert_after = "date_of_joining",
-          label = "Advance Salary",
+          label = "Balance Salary",
           read_only = 1
           ),
         ],

@@ -32,7 +32,7 @@ app_license = "MIT"
 
 # include js in doctype views
 # doctype_js = {"doctype" : "public/js/doctype.js"}
-# doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
+doctype_list_js = {"Maintenance Visit" : "/gowtham_looms/custom/js/list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
 
@@ -116,6 +116,16 @@ doc_events = {
 	},
 	'Payroll Entry':{
 		"validate" : "gowtham_looms.gowtham_looms.custom.py.payroll_entry.payroll_advance_amount"
+	},
+	# 'Maintenance Visit' :{
+	# 	"validate" : "gowtham_looms.gowtham_looms.custom.py.sales_invoice.create_sales_invoice"
+	# },
+	'Payment Entry' :{
+		"on_submit" : "gowtham_looms.gowtham_looms.custom.py.sales_invoice.change_mv_status",
+		"on_cancel" : "gowtham_looms.gowtham_looms.custom.py.sales_invoice.change_mv_status"
+	},
+	'Item Price' : {
+		'after_insert' : "gowtham_looms.gowtham_looms.custom.py.item_price.delete_price_list"
 	}
 	
 	
@@ -132,7 +142,8 @@ doctype_js = {
 	"Purchase Invoice" : "/gowtham_looms/custom/js/purchase_invoice.js",
 	"Sales Order" : "/gowtham_looms/custom/js/sales_order.js",
 	"Sales Invoice" : "/gowtham_looms/custom/js/sales_invoice.js",
-	"Payroll Entry" : "/gowtham_looms/custom/js/payroll_entry.js"
+	"Payroll Entry" : "/gowtham_looms/custom/js/payroll_entry.js",
+	"Maintenance Visit" : "/gowtham_looms/custom/js/maintenance_visit.js"
 }
 # Scheduled Tasks
 # ---------------
