@@ -1,0 +1,79 @@
+{
+ "category": "Modules",
+ "charts": [
+  {
+   "chart_name": "Category-wise Asset Value",
+   "label": "Asset Value"
+  }
+ ],
+ "creation": "2022-09-24 11:13:34.618112",
+ "developer_mode_only": 0,
+ "disable_user_customization": 1,
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "extends_another_page": 0,
+ "hide_custom": 1,
+ "idx": 0,
+ "is_default": 0,
+ "is_standard": 1,
+ "label": "Asset",
+ "links": [],
+ "modified": "2022-09-24 11:13:44.304387",
+ "modified_by": "Administrator",
+ "module": "Gowtham Looms",
+ "name": "Asset",
+ "owner": "Administrator",
+ "pin_to_bottom": 0,
+ "pin_to_top": 1,
+ "shortcuts": [
+  {
+   "doc_view": "",
+   "label": "Assets",
+   "link_to": "Asset",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "",
+   "label": "Asset Category",
+   "link_to": "Asset Category",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "",
+   "label": "Asset Maintenance",
+   "link_to": "Asset Maintenance",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "",
+   "label": "Asset Maintenance Log",
+   "link_to": "Asset Maintenance Log",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "",
+   "label": "Asset Maintenance Team",
+   "link_to": "Asset Maintenance Team",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "",
+   "label": "Asset Repair",
+   "link_to": "Asset Repair",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "",
+   "label": "Asset Movement",
+   "link_to": "Asset Movement",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "",
+   "label": "Asset Value Adjustment",
+   "link_to": "Asset Value Adjustment",
+   "type": "DocType"
+  }
+ ],
+ "shortcuts_label": "Gowtham Looms"
+}
