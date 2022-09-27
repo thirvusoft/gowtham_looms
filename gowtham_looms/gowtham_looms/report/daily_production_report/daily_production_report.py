@@ -53,13 +53,27 @@ def get_columns():
             "fieldname": "status",
             "width": 200
         },
+        {
+            "label": _("For Quantity"),
+            "fieldtype": "Data",
+            "fieldname": "for_quantity",
+            "width": 200,
+            "hidden" :1
+        },
+        {
+            "label": _("Total Quantity"),
+            "fieldtype": "Data",
+            "fieldname": "total_completed_qty",
+            "width": 200,
+            "hidden":1
+        },
       
     ]
     return columns
 
 
 def get_data(filters):
-    filter={"docstatus":1}
+    filter={"docstatus":['!=',2]}
     keys = list(filters.keys())
     if("item_name" in keys):
         filter["production_item"] = filters["item_name"]
@@ -72,5 +86,5 @@ def get_data(filters):
         filter["posting_date"] = [
             "<=", filters["to_date"]]
     result = frappe.db.get_all(
-        "Job Card", filters=filter, fields=["posting_date","name", "production_item","item_name","operation","status"])
+        "Job Card", filters=filter, fields=["posting_date","name", "production_item","item_name","operation","status","for_quantity","total_completed_qty"])
     return result

@@ -1,6 +1,13 @@
 {
  "category": "Modules",
- "charts": [],
+ "charts": [
+  {
+   "chart_name": "Sales Order Analysis"
+  },
+  {
+   "chart_name": "Sales Order Trends"
+  }
+ ],
  "creation": "2022-08-30 09:43:20.938192",
  "developer_mode_only": 0,
  "disable_user_customization": 1,
@@ -14,7 +21,7 @@
  "is_standard": 1,
  "label": "Sales",
  "links": [],
- "modified": "2022-09-20 12:44:37.389258",
+ "modified": "2022-09-27 09:25:46.373362",
  "modified_by": "Administrator",
  "module": "Gowtham Looms",
  "name": "Sales",
@@ -32,6 +39,12 @@
    "doc_view": "",
    "label": "SALES ORDER",
    "link_to": "Sales Order",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "",
+   "label": "PAYMENT ENTRY",
+   "link_to": "Payment Entry",
    "type": "DocType"
   }
  ],

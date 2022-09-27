@@ -14,7 +14,7 @@ frappe.query_reports["Daily Production Report"] = {
 			"fieldname": "to_date",
 			"label": __("To Date"),
 			"fieldtype": "Date",
-			"default": frappe.datetime.get_today(),
+			// "default": frappe.datetime.get_today(),
 		},
 		{
 			"fieldname": "item_name",
