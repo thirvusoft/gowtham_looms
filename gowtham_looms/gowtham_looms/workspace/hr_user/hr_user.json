@@ -1,6 +1,10 @@
 {
  "category": "Modules",
- "charts": [],
+ "charts": [
+  {
+   "chart_name": "Designation Wise Salary(Last Month)"
+  }
+ ],
  "creation": "2022-08-30 11:40:18.158514",
  "developer_mode_only": 0,
  "disable_user_customization": 1,
@@ -14,7 +18,7 @@
  "is_standard": 1,
  "label": "HR User",
  "links": [],
- "modified": "2022-09-20 12:36:07.520408",
+ "modified": "2022-09-27 09:22:18.275230",
  "modified_by": "Administrator",
  "module": "Gowtham Looms",
  "name": "HR User",

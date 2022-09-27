@@ -1,6 +1,13 @@
 {
  "category": "Modules",
- "charts": [],
+ "charts": [
+  {
+   "chart_name": "Purchase Order Analysis"
+  },
+  {
+   "chart_name": "Incoming Bills (Purchase Invoice)"
+  }
+ ],
  "creation": "2022-08-29 16:09:28.918717",
  "developer_mode_only": 0,
  "disable_user_customization": 1,
@@ -14,7 +21,7 @@
  "is_standard": 1,
  "label": "Purchase",
  "links": [],
- "modified": "2022-09-20 12:45:04.858950",
+ "modified": "2022-09-27 09:25:11.731132",
  "modified_by": "Administrator",
  "module": "Gowtham Looms",
  "name": "Purchase",
@@ -44,6 +51,12 @@
    "doc_view": "",
    "label": "SUPPLIER QUOTATION",
    "link_to": "Supplier Quotation",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "",
+   "label": "PURCHASE ENTRY",
+   "link_to": "Payment Entry",
    "type": "DocType"
   }
  ],

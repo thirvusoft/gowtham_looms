@@ -2,10 +2,8 @@
  "category": "Modules",
  "charts": [
   {
-   "chart_name": "Maintenance Schedule Count"
-  },
-  {
-   "chart_name": "Outgoing Bills (Sales Invoice)"
+   "chart_name": "Outgoing Bills (Sales Invoice)",
+   "label": "Outgoing Bills (Sales Invoice)"
   }
  ],
  "creation": "2022-09-20 12:25:30.651837",
@@ -21,7 +19,7 @@
  "is_standard": 1,
  "label": "Service",
  "links": [],
- "modified": "2022-09-21 18:03:07.624369",
+ "modified": "2022-09-27 09:18:42.211622",
  "modified_by": "Administrator",
  "module": "Gowtham Looms",
  "name": "Service",
