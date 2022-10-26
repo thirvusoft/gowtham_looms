@@ -15,6 +15,8 @@ from gowtham_looms.utils.hr.payroll_entry import payroll
 from gowtham_looms.gowtham_looms.custom.py.item_group import create_service_item_group
 from gowtham_looms.gowtham_looms.custom.py.item import create_service_item
 from gowtham_looms.utils.service.mainteance_visit import maintenance_visit_fields
+from gowtham_looms.utils.hr.vehicle import batch_customizations
+from gowtham_looms.utils.hr.vehicle_log import batch_customization
 def after_install():
     create_designation()
     custom_fields()
@@ -33,7 +35,9 @@ def after_install():
     create_service_item_group()
     create_service_item()
     maintenance_visit_fields()
-    
+    batch_customizations()
+    batch_customization()
+
 def execute():
     after_install()
     
