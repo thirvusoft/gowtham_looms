@@ -10,7 +10,8 @@ def validate(self,action):
         update_query = frappe.db.sql(f""" INSERT INTO tabSeries VALUES ("{naming_series}",0) """)
         old_series = frappe.get_meta('Item').get_field("naming_series").options
         make_property_setter('Item', 'naming_series', 'options', f'{old_series}\n{naming_series}', 'Text Editor')
-
+    self.series=naming_series
+    return self
 
 def create_service_item_group():
     if(not frappe.db.exists("Item Group", "Service")):

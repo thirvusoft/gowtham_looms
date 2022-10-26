@@ -50,6 +50,7 @@ def create_property_setter():
     make_property_setter('Item','over_billing_allowance','hidden', 1, 'Check')
     make_property_setter('Item','purchase_details','hidden',1,'Check')
     make_property_setter('Item','is_nil_exempt','hidden',1,'Check')
+    make_property_setter('Item',"",'autoname',"naming_series:",'Text',for_doctype=1)
     # Item Group Property Setter
     make_property_setter('Item Group','sb9','hidden', 1, 'Check')
     make_property_setter('Item Group','defaults','hidden', 1, 'Check')
