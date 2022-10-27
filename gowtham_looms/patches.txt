@@ -15,3 +15,4 @@ gowtham_looms.utils.hr.payroll_entry
 gowtham_looms.utils.service.mainteance_visit
 gowtham_looms.utils.hr.vehicle
 gowtham_looms.utils.hr.vehicle_log
+gowtham_looms.utils.hr.driver

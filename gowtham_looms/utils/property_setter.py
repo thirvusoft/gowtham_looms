@@ -350,7 +350,8 @@ def create_property_setter():
     make_property_setter("Asset Repair",'cost_center','fetch_from','company.cost_center','Text Editor')
     make_property_setter('Asset Repair','cost_center','hidden',1,'Check')
     make_property_setter('Asset Repair','project','hidden',1,'Check')
-    
+    # Driver Property Setter
+    make_property_setter('Driver','transporter','hidden',1,'Check')
     
 def execute():
     create_property_setter()

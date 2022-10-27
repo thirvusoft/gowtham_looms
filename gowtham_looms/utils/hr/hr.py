@@ -1,4 +1,3 @@
-from email.policy import default
 from frappe.custom.doctype.custom_field.custom_field import create_custom_fields
 
 def employee_custom_fields():
