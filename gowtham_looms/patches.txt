@@ -13,3 +13,5 @@ gowtham_looms.utils.Accounting.bank_account
 gowtham_looms.utils.hr.employee_advance
 gowtham_looms.utils.hr.payroll_entry
 gowtham_looms.utils.service.mainteance_visit
+gowtham_looms.utils.hr.vehicle
+gowtham_looms.utils.hr.vehicle_log

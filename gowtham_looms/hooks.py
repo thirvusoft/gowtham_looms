@@ -126,6 +126,27 @@ doc_events = {
 	},
 	'Item Price' : {
 		'after_insert' : "gowtham_looms.gowtham_looms.custom.py.item_price.delete_price_list"
+	},
+	'Driver' :{
+		"validate":"gowtham_looms.gowtham_looms.custom.py.driver.validate_phone"
+	},
+	"Vehicle Log":{
+		"on_update_after_submit": "gowtham_looms.gowtham_looms.custom.py.vehicle_log.onsubmit",
+		"on_submit": ["gowtham_looms.gowtham_looms.custom.py.vehicle_log.onsubmit",
+						"gowtham_looms.gowtham_looms.custom.py.vehicle_log.onsubmit_hours",
+						"gowtham_looms.gowtham_looms.custom.py.vehicle_log.update_transport_cost",
+						"gowtham_looms.gowtham_looms.custom.py.vehicle_log.vehicle_log_draft",
+						"gowtham_looms.gowtham_looms.custom.py.vehicle_log.vehicle_log_mileage",
+		],
+		"on_cancel" :["gowtham_looms.gowtham_looms.custom.py.vehicle_log.onsubmit",
+						"gowtham_looms.gowtham_looms.custom.py.vehicle_log.update_transport_cost"
+			],
+		"validate" :["gowtham_looms.gowtham_looms.custom.py.vehicle_log.validate",
+						"gowtham_looms.gowtham_looms.custom.py.vehicle_log.validate_distance",
+						"gowtham_looms.gowtham_looms.custom.py.vehicle_log.total_cost"
+
+		]
+
 	}
 	
 	
@@ -143,7 +164,11 @@ doctype_js = {
 	"Sales Order" : "/gowtham_looms/custom/js/sales_order.js",
 	"Sales Invoice" : "/gowtham_looms/custom/js/sales_invoice.js",
 	"Payroll Entry" : "/gowtham_looms/custom/js/payroll_entry.js",
-	"Maintenance Visit" : "/gowtham_looms/custom/js/maintenance_visit.js"
+	"Maintenance Visit" : "/gowtham_looms/custom/js/maintenance_visit.js",
+	"Vehicle": "/gowtham_looms/custom/js/vehicle.js",
+	"Vehicle Log" :["/gowtham_looms/custom/js/vehicle_log.js",
+					"/gowtham_looms/custom/js/vehicle_log_service.js"
+	]
 }
 # Scheduled Tasks
 # ---------------
