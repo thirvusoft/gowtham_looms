@@ -1,3 +1,4 @@
+import json
 import frappe
 from frappe.custom.doctype.property_setter.property_setter import make_property_setter
 from gowtham_looms.gowtham_looms.custom.py.item_group import validate
@@ -20,7 +21,7 @@ def create_service_item():
         doc = validate(doc,"")
         doc.save(ignore_permissions=True)
     frappe.db.commit()
-    
+
 def validate(doc, actions):
         abbr = f'{doc.abbrevation}.-.{doc.ts_type}.##'
         old_series = frappe.get_meta('Item').get_field("naming_series").options.split()
