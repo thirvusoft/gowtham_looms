@@ -51,7 +51,7 @@ def create_property_setter():
     make_property_setter('Item','purchase_details','hidden',1,'Check')
     make_property_setter('Item','is_nil_exempt','hidden',1,'Check')
     make_property_setter('Item',"",'autoname',"naming_series:",'Text',for_doctype=1)
-    make_property_setter('Item Reorder','warehouse_reorder_qty','default',1,'Text Editor')
+    make_property_setter('Item Reorder','warehouse_reorder_qty','default',1,'Text Editor') 
     # Item Group Property Setter
     make_property_setter('Item Group','sb9','hidden', 1, 'Check')
     make_property_setter('Item Group','defaults','hidden', 1, 'Check')
