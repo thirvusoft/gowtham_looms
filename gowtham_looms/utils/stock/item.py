@@ -32,6 +32,13 @@ def custom_fields():
                 hidden=1,
                 fetch_from='item_group.abbr'
             ),
+            dict(
+                fieldname= "ts_type",
+                fieldtype= "Select",
+                insert_after= "item_name",
+                label= "B'/S'/P'",
+                options='\nB\nS\nP'
+            ),
         ]
     }
     create_custom_fields(item_custom_fields)

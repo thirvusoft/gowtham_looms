@@ -147,7 +147,8 @@ doc_events = {
 
 		]
 
-	}
+	},
+	# 'Item':{"validate": "gowtham_looms.gowtham_looms.custom.py.item.validate"}
 	
 	
 }
