@@ -18,6 +18,7 @@ from gowtham_looms.utils.service.mainteance_visit import maintenance_visit_field
 from gowtham_looms.utils.hr.vehicle import batch_customizations
 from gowtham_looms.utils.hr.vehicle_log import batch_customization
 from gowtham_looms.utils.hr.driver import driver_custom_fields
+from gowtham_looms.utils.stock.item_reorder import item_reorder_custom_fields
 def after_install():
     create_designation()
     custom_fields()
@@ -39,6 +40,7 @@ def after_install():
     batch_customizations()
     batch_customization()
     driver_custom_fields()
+    item_reorder_custom_fields()
 
 def execute():
     after_install()
