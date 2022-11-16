@@ -9,7 +9,12 @@ def sales_order_custom_fields():
                 fieldtype= "Column Break",
                 insert_after= "total_qty"
             ),
-           
+            dict(
+                fieldname= "gl_item_check",
+                fieldtype= "Check",
+                insert_after= "order_type",
+                hidden=1
+            ),     
         ]
     }
     create_custom_fields(sales_order_custom_fields)
