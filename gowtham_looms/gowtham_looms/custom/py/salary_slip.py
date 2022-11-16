@@ -113,7 +113,7 @@ def payroll(doc,action):
                 
                 if doc.is_new():
                         doc.balance_amount = bal_salary 
-                        doc.balance1_amount =  bal_salary 
+                        doc.balance1_amount = bal_salary 
                 
                         
                                 

@@ -145,7 +145,7 @@ def create_property_setter():
     make_property_setter('Stock Entry','target_warehouse_address','hidden',1,'Check')
     make_property_setter('Stock Entry','source_warehouse_address','hidden',1,'Check')
     make_property_setter('Stock Entry','remarks','hidden',1,'Check')
-    make_property_setter('Stock Entry','additional_costs_section','depends_on','eval:doc.total_additional_costs','Text Editor')
+    # make_property_setter('Stock Entry','additional_costs_section','depends_on','eval:doc.total_additional_costs','Text Editor') 
     # Purchase Order Property Setter
     make_property_setter('Purchase Order','column_break5','hidden', 1, 'Check')
     make_property_setter('Purchase Order','subscription_section','hidden', 1, 'Check')
