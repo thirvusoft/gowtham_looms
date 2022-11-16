@@ -307,8 +307,7 @@ def create_property_setter():
     make_property_setter('Customer','default_receivable_accounts','hidden',1,'Check')
     make_property_setter('Customer','more_info','hidden',1,'Check')
     make_property_setter('Customer','column_break_38','hidden',1,'Check')
-    make_property_setter('Customer','sales_team_section_break','hidden',1,'Check')
-    make_property_setter('Customer','sales_team_section_break','hidden',1,'Check')
+    make_property_setter('Customer','sales_team_section_break','hidden',0,'Check')
     make_property_setter('Customer','sales_team_section','hidden',1,'Check')
     # Supplier Property Setter
     make_property_setter('Supplier','primary_address_and_contact_detail_section','collapsible',1,'Check')
