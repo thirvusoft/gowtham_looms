@@ -8,10 +8,7 @@ def validate(doc,actions):
         get_doc = frappe.get_doc('Sales Order',i.name)
         for j in get_doc.items:
             s.append(j.item_code)
-            print(s,"--")
         for j in doc.items:
             d.append(j.item_code)
-            print(d)
-        print(sorted(s) , sorted(d))
         if sorted(s) == sorted(d):
             doc.gl_item_check = 1
