@@ -148,6 +148,9 @@ doc_events = {
 		]
 
 	},
+    "Sales Order":{
+    	"validate" :"gowtham_looms.gowtham_looms.custom.py.sales_order.validate"
+	}
 	# 'Item':{"validate": "gowtham_looms.gowtham_looms.custom.py.item.validate"}
 	
 	
@@ -168,8 +171,9 @@ doctype_js = {
 	"Maintenance Visit" : "/gowtham_looms/custom/js/maintenance_visit.js",
 	"Vehicle": "/gowtham_looms/custom/js/vehicle.js",
 	"Vehicle Log" :["/gowtham_looms/custom/js/vehicle_log.js",
-					"/gowtham_looms/custom/js/vehicle_log_service.js"
-	]
+					"/gowtham_looms/custom/js/vehicle_log_service.js",],
+    "Stock Reconciliation" :"/gowtham_looms/custom/js/stock_reconciliation_item.js"
+	
 }
 # Scheduled Tasks
 # ---------------

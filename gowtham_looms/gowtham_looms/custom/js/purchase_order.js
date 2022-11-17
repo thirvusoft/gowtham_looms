@@ -6,5 +6,22 @@ frappe.ui.form.on("Purchase Order", {
             frm.remove_custom_button('Update Rate as per Last Purchase','Tools')
 		},100);  
     },
+    supplier: function(frm){
+        frappe.call({
+            method: "gowtham_looms.gowtham_looms.custom.py.purchase_order.item_supplier",
+            args:{
+                supplier:frm.doc.supplier,
+            },
+            callback: function(r) {
+                if(frm.doc.supplier!= ""){
+                    frm.set_value('items',r.message);
+                    frm.refresh()}
+                else{
+                    frm.set_value('items',"");
+                    frm.refresh()                   
+                }
+            }
+        })
+    }
   
 })
