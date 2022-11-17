@@ -1,0 +1,29 @@
+{
+ "attach_print": 0,
+ "channel": "System Notification",
+ "creation": "2022-11-17 12:27:52.649793",
+ "date_changed": "schedule_date",
+ "days_in_advance": 1,
+ "docstatus": 0,
+ "doctype": "Notification",
+ "document_type": "Purchase Order",
+ "enabled": 1,
+ "event": "Days After",
+ "idx": 0,
+ "is_standard": 1,
+ "message": "Add your message here",
+ "modified": "2022-11-17 12:27:52.649793",
+ "modified_by": "Administrator",
+ "module": "Gowtham Looms",
+ "name": "Purchase Order Notification list",
+ "owner": "Administrator",
+ "recipients": [
+  {
+   "receiver_by_document_field": "owner",
+   "receiver_by_role": "Administrator"
+  }
+ ],
+ "send_system_notification": 1,
+ "send_to_all_assignees": 0,
+ "subject": "{{doc.supplier}} has still not yet delivered the order product"
+}

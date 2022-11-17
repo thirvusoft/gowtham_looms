@@ -17,3 +17,4 @@ gowtham_looms.utils.hr.vehicle
 gowtham_looms.utils.hr.vehicle_log
 gowtham_looms.utils.hr.driver
 gowtham_looms.utils.stock.item_reorder
+gowtham_looms.utils.buying.buying_settings

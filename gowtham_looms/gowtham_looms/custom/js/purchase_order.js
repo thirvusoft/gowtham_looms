@@ -14,14 +14,33 @@ frappe.ui.form.on("Purchase Order", {
             },
             callback: function(r) {
                 if(frm.doc.supplier!= ""){
-                    frm.set_value('items',r.message);
-                    frm.refresh()}
-                else{
-                    frm.set_value('items',"");
-                    frm.refresh()                   
-                }
+                    var count =0
+                    frm.set_value('items',[]);
+                    r.message.forEach(element => {
+                        var row = cur_frm.add_child('items')
+                        frappe.model.set_value(row.doctype,row.name,'item_code',element.item_code)
+                    });
+                           
+                } else{
+                var count =0
+                frm.set_value('items',[]);
+                r.message.forEach(element => {
+                    var row = cur_frm.add_child('items')
+                    frappe.model.set_value(row.doctype,row.name,'item_code',"")
+                });
             }
+        }
         })
-    }
+    },
+    refresh: function(frm) {
+		if (frm.doc.transaction_date && !frm.doc.schedule_date) {
+            frappe.db.get_single_value('Buying Settings','lead_day').then((message) => {
+            
+            var a_year_from_start = frappe.datetime.add_days(frm.doc.transaction_date, message);
+			frm.set_value("schedule_date", frappe.datetime.add_days(a_year_from_start, -1));
+        
+            });
+		}
+	}
   
 })
