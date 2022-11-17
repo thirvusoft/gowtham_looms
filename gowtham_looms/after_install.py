@@ -19,6 +19,7 @@ from gowtham_looms.utils.hr.vehicle import batch_customizations
 from gowtham_looms.utils.hr.vehicle_log import batch_customization
 from gowtham_looms.utils.hr.driver import driver_custom_fields
 from gowtham_looms.utils.stock.item_reorder import item_reorder_custom_fields
+from gowtham_looms.utils.buying.buying_settings import buyiing_settings_custom_fields
 def after_install():
     create_designation()
     custom_fields()
@@ -41,6 +42,7 @@ def after_install():
     batch_customization()
     driver_custom_fields()
     item_reorder_custom_fields()
+    buyiing_settings_custom_fields()
 
 def execute():
     after_install()
