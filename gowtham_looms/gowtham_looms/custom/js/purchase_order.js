@@ -24,10 +24,6 @@ frappe.ui.form.on("Purchase Order", {
                 } else{
                 var count =0
                 frm.set_value('items',[]);
-                r.message.forEach(element => {
-                    var row = cur_frm.add_child('items')
-                    frappe.model.set_value(row.doctype,row.name,'item_code',"")
-                });
             }
         }
         })
