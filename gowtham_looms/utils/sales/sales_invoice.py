@@ -34,6 +34,19 @@ def sales_invoice_custom_fields():
                 insert_after= "ts_date",
                 label="Place of Supply",
             ),
+            dict(
+                fieldname= "ts_place",
+                fieldtype= "Data",
+                insert_after= "ts_date",
+                label="Place of Supply",
+            ),            
+            dict(
+                fieldname= "ts_phone_no",
+                fieldtype= "Data",
+                insert_after= "company_address",
+                label="Phone Number",
+                fetch_from = "company_address.phone"
+            ),
            
         ]
     }
