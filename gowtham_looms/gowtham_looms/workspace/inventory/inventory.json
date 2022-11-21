@@ -3,6 +3,9 @@
  "charts": [
   {
    "chart_name": "Item-wise Annual Sales"
+  },
+  {
+   "chart_name": "Warehouse wise Stock Value"
   }
  ],
  "creation": "2022-08-30 11:49:11.115488",
@@ -17,8 +20,27 @@
  "is_default": 0,
  "is_standard": 1,
  "label": "Inventory",
- "links": [],
- "modified": "2022-09-27 09:21:36.438766",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Stock Ledger",
+   "link_to": "Stock Ledger",
+   "link_type": "Report",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Stock Balance",
+   "link_to": "Stock Balance",
+   "link_type": "Report",
+   "onboard": 1,
+   "type": "Link"
+  }
+ ],
+ "modified": "2022-11-21 09:40:16.770807",
  "modified_by": "Administrator",
  "module": "Gowtham Looms",
  "name": "Inventory",

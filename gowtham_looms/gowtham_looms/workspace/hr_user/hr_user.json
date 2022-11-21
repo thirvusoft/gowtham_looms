@@ -17,8 +17,18 @@
  "is_default": 0,
  "is_standard": 1,
  "label": "HR User",
- "links": [],
- "modified": "2022-09-27 09:22:18.275230",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Employee Advance Summary",
+   "link_to": "Employee Advance Summary",
+   "link_type": "Report",
+   "onboard": 1,
+   "type": "Link"
+  }
+ ],
+ "modified": "2022-11-21 09:59:15.028399",
  "modified_by": "Administrator",
  "module": "Gowtham Looms",
  "name": "HR User",

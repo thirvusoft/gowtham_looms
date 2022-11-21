@@ -26,8 +26,63 @@
  "is_default": 0,
  "is_standard": 1,
  "label": "Manufacture",
- "links": [],
- "modified": "2022-11-08 17:26:22.888953",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Job Card Summary",
+   "link_to": "Job Card Summary",
+   "link_type": "Report",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Work Order Stock Report",
+   "link_to": "Work Order Stock Report",
+   "link_type": "Report",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "BOM Operations Time",
+   "link_to": "BOM Operations Time",
+   "link_type": "Report",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Work Order Summary",
+   "link_to": "Work Order Summary",
+   "link_type": "Report",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Work Orders in Progress",
+   "link_to": "Work Orders in Progress",
+   "link_type": "Report",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Completed Work Orders",
+   "link_to": "Completed Work Orders",
+   "link_type": "Report",
+   "onboard": 1,
+   "type": "Link"
+  }
+ ],
+ "modified": "2022-11-21 09:50:31.716509",
  "modified_by": "Administrator",
  "module": "Gowtham Looms",
  "name": "Manufacture",
