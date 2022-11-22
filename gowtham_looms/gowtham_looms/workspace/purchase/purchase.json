@@ -20,8 +20,36 @@
  "is_default": 0,
  "is_standard": 1,
  "label": "Purchase",
- "links": [],
- "modified": "2022-09-27 09:25:11.731132",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Purchase Analytics",
+   "link_to": "Purchase Analytics",
+   "link_type": "Report",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Purchase Order Analysis",
+   "link_to": "Purchase Order Analysis",
+   "link_type": "Report",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Purchase Order Trends",
+   "link_to": "Purchase Order Trends",
+   "link_type": "Report",
+   "onboard": 1,
+   "type": "Link"
+  }
+ ],
+ "modified": "2022-11-21 09:56:43.167030",
  "modified_by": "Administrator",
  "module": "Gowtham Looms",
  "name": "Purchase",
