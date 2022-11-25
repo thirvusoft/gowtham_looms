@@ -2,7 +2,7 @@ frappe.ui.form.on("Item", {
     refresh: function(frm){
         frm.set_df_property('item_code','reqd',0);
         frm.set_df_property('delivered_by_supplier',1);
-        frm.set_df_property('item_code','hidden',1);
+        // frm.set_df_property('item_code','hidden',1);
         frm.set_df_property('naming_series','hidden',1)
         frm.set_df_property('inventory_section','collapsible',1)
         setTimeout(() => {

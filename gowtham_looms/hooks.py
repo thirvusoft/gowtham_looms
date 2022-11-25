@@ -150,8 +150,10 @@ doc_events = {
 	},
     "Sales Order":{
     	"validate" :"gowtham_looms.gowtham_looms.custom.py.sales_order.validate"
-	}
-	# 'Item':{"validate": "gowtham_looms.gowtham_looms.custom.py.item.validate"}
+	},
+	'Item':{"autoname": "gowtham_looms.gowtham_looms.custom.py.item.validate",
+			# "after_insert":"gowtham_looms.gowtham_looms.custom.py.item.after_install"	
+			}
 	
 	
 }
