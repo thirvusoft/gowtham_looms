@@ -175,7 +175,9 @@ doctype_js = {
 	"Vehicle Log" :["/gowtham_looms/custom/js/vehicle_log.js",
 					"/gowtham_looms/custom/js/vehicle_log_service.js",],
     "Stock Reconciliation" :"/gowtham_looms/custom/js/stock_reconciliation_item.js",
-    "Quotation":"/gowtham_looms/custom/js/quotation_item.js"
+    "Quotation":"/gowtham_looms/custom/js/quotation_item.js",
+    "Sales Invoice":"/gowtham_looms/custom/js/sales_invoice_item.js",
+    "Sales Order":"/gowtham_looms/custom/js/sales_order_item.js"
 	
 }
 # Scheduled Tasks

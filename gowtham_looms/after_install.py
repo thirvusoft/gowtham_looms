@@ -23,6 +23,8 @@ from gowtham_looms.utils.buying.buying_settings import buyiing_settings_custom_f
 from gowtham_looms.gowtham_looms.custom.py.workflow import workflow_document_creation
 from gowtham_looms.utils.crm.quotation import quotation_custom_fields
 from gowtham_looms.utils.crm.quotation_item import quotation_item_custom_fields
+from gowtham_looms.utils.sales.sales_invoice_item import sales_item_custom_fields
+from gowtham_looms.utils.sales.sales_order_item import sales_order_item_custom_fields
 def after_install():
     create_designation()
     custom_fields()
@@ -49,6 +51,8 @@ def after_install():
     buyiing_settings_custom_fields()
     workflow_document_creation()
     quotation_custom_fields()
+    sales_item_custom_fields()
+    sales_order_item_custom_fields()
 
 def execute():
     after_install()
