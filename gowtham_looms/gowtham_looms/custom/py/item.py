@@ -2,6 +2,7 @@ import json
 import frappe
 from frappe.custom.doctype.property_setter.property_setter import make_property_setter
 from gowtham_looms.gowtham_looms.custom.py.item_group import validate
+from frappe.model.naming import make_autoname
 
 def create_service_item():
     if(not frappe.db.exists("Item", {'item_group':'Service', 'item_name':'Service Item'})):
@@ -25,9 +26,12 @@ def create_service_item():
 def validate(doc, actions):
         abbr = f'{doc.abbrevation}.-.{doc.ts_type}.##'
         old_series = frappe.get_meta('Item').get_field("naming_series").options.split()
-        if(abbr not in old_series):
-            update_query = frappe.db.sql(f""" INSERT INTO tabSeries VALUES ("{abbr}",0) """)
-            old_series = frappe.get_meta('Item').get_field("naming_series").options
-            defaults = frappe.get_meta('Item').get_field("naming_series").default
-            make_property_setter('Item', 'naming_series', 'options', f'{old_series}\n{abbr}', 'Text Editor')
-            make_property_setter('Item', 'naming_series', 'default', defaults, 'Text Editor')
+        if(doc.item_group != "Looms"):
+            if(abbr not in old_series):
+                update_query = frappe.db.sql(f""" INSERT INTO tabSeries VALUES ("{abbr}",0) """)
+                old_series = frappe.get_meta('Item').get_field("naming_series").options
+                defaults = frappe.get_meta('Item').get_field("naming_series").default
+                make_property_setter('Item', 'naming_series', 'options', f'{old_series}\n{abbr}', 'Text Editor')
+                make_property_setter('Item', 'naming_series', 'default', defaults, 'Text Editor')
+        else:
+            doc.name = make_autoname(doc.item_name)
