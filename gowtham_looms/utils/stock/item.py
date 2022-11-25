@@ -39,6 +39,7 @@ def custom_fields():
                 label= "B'/S'/P'",
                 options='\nB\nS\nP'
             ),
+
         ]
     }
     create_custom_fields(item_custom_fields)
