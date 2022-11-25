@@ -7,6 +7,3 @@ def create_designation():
         doc.save(ignore_permissions=True)
     frappe.db.commit()
     
-
-
-    
