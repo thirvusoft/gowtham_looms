@@ -19,3 +19,4 @@ gowtham_looms.utils.hr.driver
 gowtham_looms.utils.stock.item_reorder
 gowtham_looms.utils.buying.buying_settings
 gowtham_looms.utils.crm.quotation
+gowtham_looms.utils.crm.quotation_item
