@@ -24,7 +24,7 @@ def create_service_item():
     frappe.db.commit()
 
 def validate(doc, actions):
-        abbr = f'{doc.abbrevation}.-.{doc.ts_type}.##'
+        abbr = f'{doc.abbrevation}.##.-.{doc.ts_type}'
         old_series = frappe.get_meta('Item').get_field("naming_series").options.split()
         if(doc.item_group != "Looms"):
             if(abbr not in old_series):
