@@ -5,8 +5,5 @@ frappe.ui.form.on("Quotation Item", {
             frappe.model.set_value(cdt, cdn,'ts_size',message[0].attribute_value);
         })
         
-    }, 
-     
-  
-  
+    },
 })
