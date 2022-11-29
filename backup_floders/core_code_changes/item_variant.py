@@ -383,8 +383,8 @@ def make_variant_item_code(template_item_code, template_item_name, variant):
 		abbreviations.append(abbr_or_value)
 #Core code changes :  Line :) 386, 387 : Variant Naming Series
 	if abbreviations:
-		variant.item_code = "{1} - {0}".format(template_item_code, "-".join(abbreviations))
-		variant.item_name = "{1} - {0}".format(template_item_name, "-".join(abbreviations))
+		variant.item_code = "{1}  {0}".format(template_item_code, "".join(abbreviations))
+		variant.item_name = "{1}  {0}".format(template_item_name, "".join(abbreviations))
 
 
 @frappe.whitelist()
