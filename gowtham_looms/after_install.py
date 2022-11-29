@@ -25,6 +25,7 @@ from gowtham_looms.utils.crm.quotation import quotation_custom_fields
 from gowtham_looms.utils.crm.quotation_item import quotation_item_custom_fields
 from gowtham_looms.utils.sales.sales_invoice_item import sales_item_custom_fields
 from gowtham_looms.utils.sales.sales_order_item import sales_order_item_custom_fields
+from gowtham_looms.utils.stock.item_attribute import item_attribute_custom_fields
 def after_install():
     create_designation()
     custom_fields()
@@ -53,6 +54,7 @@ def after_install():
     quotation_custom_fields()
     sales_item_custom_fields()
     sales_order_item_custom_fields()
+    item_attribute_custom_fields()
 
 def execute():
     after_install()

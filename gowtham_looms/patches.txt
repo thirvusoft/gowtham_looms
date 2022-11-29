@@ -22,3 +22,4 @@ gowtham_looms.utils.crm.quotation
 gowtham_looms.utils.crm.quotation_item
 gowtham_looms.utils.sales.sales_invoice_item
 gowtham_looms.utils.sales.sales_order_item
+gowtham_looms.utils.stock.item_attribute
