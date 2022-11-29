@@ -39,6 +39,14 @@ def custom_fields():
                 label= "B'/S'/P'",
                 options='\nB\nS\nP'
             ),
+            dict(
+                fieldname= "ts_variant",
+                fieldtype= "Check",
+                insert_after= "ts_type",
+                label= "TS Variant",
+                hidden=1
+            ),
+
 
         ]
     }
