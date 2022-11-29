@@ -366,7 +366,7 @@ def make_variant_item_code(template_item_code, template_item_name, variant):
 			"""select i.numeric_values, v.abbr
 			from `tabItem Attribute` i left join `tabItem Attribute Value` v
 				on (i.name=v.parent)
-			where i.name=%(attribute)s and (v.attribute_value=%(attribute_value)s or i.numeric_values = 1) and i.not_include_in_name != 0""",
+			where i.not_include_in_name != 0 and i.name=%(attribute)s and (v.attribute_value=%(attribute_value)s or i.numeric_values = 1)""",
 			{"attribute": attr.attribute, "attribute_value": attr.attribute_value},
 			as_dict=True,
 		)
