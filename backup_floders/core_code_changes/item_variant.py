@@ -366,11 +366,10 @@ def make_variant_item_code(template_item_code, template_item_name, variant):
 			"""select i.numeric_values, v.abbr
 			from `tabItem Attribute` i left join `tabItem Attribute Value` v
 				on (i.name=v.parent)
-			where i.name=%(attribute)s and (v.attribute_value=%(attribute_value)s or i.numeric_values = 1) and i.not_include_in_name != 1""",
+			where i.name=%(attribute)s and (v.attribute_value=%(attribute_value)s or i.numeric_values = 1)""",
 			{"attribute": attr.attribute, "attribute_value": attr.attribute_value},
 			as_dict=True,
 		)
-		print(item_attribute,"=======")
 		if not item_attribute:
 			continue
 			# frappe.throw(_('Invalid attribute {0} {1}').format(frappe.bold(attr.attribute),
@@ -381,14 +380,11 @@ def make_variant_item_code(template_item_code, template_item_name, variant):
 			cstr(attr.attribute_value) if item_attribute[0].numeric_values else item_attribute[0].abbr
 		)
 		abbreviations.append(abbr_or_value)
-#Core code changes :  Line :) 386, 387 : Variant Naming Series
-#New Line Added 389 , 390 , 391
+
 	if abbreviations:
-		variant.item_code = "{1}  {0}".format(template_item_code, "".join(abbreviations))
-		variant.item_name = "{1}  {0}".format(template_item_name, "".join(abbreviations))
-	else:
-		variant.item_code = "{0}".format(template_item_code, "".join(abbreviations))
-		variant.item_name = "{0}".format(template_item_name, "".join(abbreviations))
+		variant.item_code = "{1}  {0}".format(template_item_code, "-".join(abbreviations))
+		variant.item_name = "{1}  {0}".format(template_item_name, "-".join(abbreviations))
+
 
 
 
